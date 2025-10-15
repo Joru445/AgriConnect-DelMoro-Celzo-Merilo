@@ -8,5 +8,8 @@ buttons.forEach(btn => {
 
     pages.forEach(p => p.classList.remove('active'));
     document.getElementById(btn.dataset.target).classList.add('active');
+    const targetPage = document.getElementById(btn.dataset.target);
+    if (targetPage) {targetPage.classList.add('active');
+    }
   })
 })
