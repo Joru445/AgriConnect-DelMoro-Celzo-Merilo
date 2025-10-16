@@ -268,7 +268,7 @@ main .page .intro-section {
   max-height: 400px;
   padding: 1rem;
   margin: 1rem 0.5rem;
-  background-color: var(--color-background-highlight);
+  background-color: #FFF9E6;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0,0,0,0.15);
   transition: transform var(--transition-3s);
@@ -318,6 +318,86 @@ main .page .intro-section .buyer-button {
 
 main .page .intro .user-buttons button:hover {
   opacity: 0.9;
+}
+
+/* GROW WITH US SECTION */
+main .page .grow-section {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  max-height: 400px;
+  padding: 1rem;
+  margin: 1rem 0.5rem;
+  background-color: #FFF9E6; /* warm cream */
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  transition: transform var(--transition-3s);
+}
+
+main .page .grow-section:hover {
+  transform: scale(1.01);
+}
+
+main .page .grow-section h2 {
+  color: var(--color-primary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+main .page .grow-section p {
+  color: var(--color-text-muted);
+  max-width: 600px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 1rem;
+}
+
+main .page .grow-section .grow-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .page .grow-section .grow-buttons button {
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: var(--transition-3s);
+}
+
+main .page .grow-section .grow-buttons .buyer-button {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+}
+
+main .page .grow-section .grow-buttons .farmer-button {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+main .page .grow-section .grow-buttons button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Responsiveness: keep same stacking behavior as intro */
+@media (max-width: 768px) {
+  main .page .grow-section {
+    max-height: none;
+    padding: 1.5rem;
+  }
+  main .page .grow-section .grow-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  main .page .grow-section .grow-buttons button {
+    width: 80%;
+    max-width: 280px;
+  }
 }
 
 /* MAIN FEEDBACK FORM SECTION */
