@@ -249,22 +249,33 @@ main .page header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; 
+  height: 200px;
   padding: 1em;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center; 
   background-color: var(--color-background-muted);
 }
 
-main .page header h1 {
-  color: var(--color-background);
-  text-shadow: 2px 2px 2px black;
+main .page header h1.text {
+  font-family: 'Cabinet Grotesk', sans-serif; 
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0; 
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
-main .page header p {
-  font-style: italic;
+main .page header h1.text .agri {
+  color: #ffd166; 
   font-weight: bold;
-  color: var(--color-background);
-  text-shadow: 2px 2px 2px black;
+}
+
+main .page header h1.text .connect {
+  color: #f5f5dc; 
+  font-size: 2rem; 
 }
 
 main .page article {
@@ -680,3 +691,27 @@ footer p {
     transform: translateY(0);
   }
 }
+/* --- TAGLINE & SHORT DESCRIPTION (below image) --- */
+.home-info {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  background-color: var(--color-background);
+}
+
+.home-info .tagline {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #1f6f2b;
+  margin-bottom: 0.5rem;
+}
+
+.home-info .short-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
