@@ -691,7 +691,7 @@ footer p {
     transform: translateY(0);
   }
 }
-/* --- TAGLINE & SHORT DESCRIPTION (below image) --- */
+/*TAGLINE & SHORT DESCRIPTION*/
 .home-info {
   text-align: center;
   padding: 1.5rem 1rem 2rem;
@@ -699,7 +699,7 @@ footer p {
 }
 
 .home-info .tagline {
-  font-size: 1.3rem;
+  font-size: clamp(1.8rem, 4vw, 2rem);
   font-weight: 600;
   font-style: italic;
   color: #1f6f2b;
@@ -707,7 +707,7 @@ footer p {
 }
 
 .home-info .short-desc {
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
