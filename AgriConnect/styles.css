@@ -575,27 +575,12 @@ main aside {
   background-color: var(--color-background-muted);
 }
 
-/* SETTINGS HEADER TEXT STYLES */
-#settings header h1.text {
-  color: #1f6f2b; /* rich green for title */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 4px 8px rgba(31,111,43,0.18), 0 1px 0 rgba(255,255,255,0.04);
-}
-
-#settings header p.text-muted {
-  color: #3e8e41; /* softer, friendly green tone */
-  font-style: italic;
-  font-weight: 500;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
 /* SETTINGS PAGE */
 main .settings-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin: 2rem auto;
+  margin: 6rem auto 2rem auto;
   width: 90%;
   max-width: 400px;
   background-color: var(--color-background-highlight);
@@ -603,6 +588,7 @@ main .settings-form {
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.15);
 }
+
 main .setting-option {
   display: flex;
   justify-content: space-between;
