@@ -84,11 +84,6 @@
             <p>Perfect for salads and healthy meals.</p>
           </div>
           <div class="featured-card">
-            <img src="Products Pic/corn.webp" alt="Corn">
-            <h3>Fresh Corn</h3>
-            <p>Sweet and juicy, perfect for boiling or grilling.</p>
-          </div>
-          <div class="featured-card">
             <img src="Products Pic/rice.jpg" alt="Rice">
             <h3>Organic Rice</h3>
             <p>High-quality grains, perfect for daily meals.</p>
@@ -116,8 +111,16 @@
       </header>
 
       <section class="products-section">
+        <div class="product-categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="grains">Grains</button>
+          <button class="category-btn" data-category="vegetables">Vegetables</button>
+          <button class="category-btn" data-category="fruits">Fruits</button>
+          <button class="category-btn" data-category="meat">Meat</button>
+          <button class="category-btn" data-category="seafoods">Seafoods</button>
+        </div>
         <div class="products-grid">
-          <div class="product-card">
+          <div class="product-card" data-category="grains">
             <img src="./Products Pic/rice.jpg" alt="Rice">
             <h3>Rice</h3>
             <p>Freshly harvested grains ready for milling and trade.</p>
@@ -129,12 +132,12 @@
             </div>
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
-<!-- Placeholder products -->
-          <div class="product-card">
-            <img src="./Products Pic/corn.webp" alt="Corn">
-            <h3>Corn</h3>
-            <p>High-quality corn ideal for food and livestock feed.</p>
-            <p class="product-price">₱13.98</p>
+
+          <div class="product-card" data-category="fruits">
+            <img src="./Products Pic/mangosteen.png" alt="Mangosteen">
+            <h3>Mangosteen</h3>
+            <p>Juicy mangosteen packed with natural sweetness and aroma.</p>
+            <p class="product-price">₱170.00</p>
             <div class="quantity">
               <button class="qty-btn">-</button>
               <span class="qty-value">1</span>
@@ -143,7 +146,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/cabbage.jpg" alt="Cabbage">
             <h3>Cabbage</h3>
             <p>Healthy farm-raised cabbage fresh from local farms.</p>
@@ -156,7 +159,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/onion.jpg" alt="Onions">
             <h3>Onions</h3>
             <p>Freshly harvested onions with long shelf life.</p>
@@ -169,7 +172,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/tomato.jpg" alt="Tomatoes">
             <h3>Tomatoes</h3>
             <p>Vibrant red tomatoes, perfect for cooking and sauces.</p>
@@ -182,7 +185,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/carrots.jpg" alt="Carrots">
             <h3>Carrots</h3>
             <p>Crunchy, sweet carrots grown in local farms.</p>
@@ -195,7 +198,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/eggplant.webp" alt="Eggplant">
             <h3>Eggplant</h3>
             <p>Fresh and tender eggplants perfect for healthy dishes.</p>
@@ -208,7 +211,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/ginger.webp" alt="Ginger">
             <h3>Ginger</h3>
             <p>Aromatic and spicy ginger roots ideal for cooking and tea.</p>
@@ -221,7 +224,7 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="fruits">
             <img src="./Products Pic/Mangoes.jpg" alt="Ginger">
             <h3>Mangoes</h3>
             <p>Locally grown and naturally ripened.</p>
@@ -234,11 +237,115 @@
             <button class="add-to-cart">🛒 Add to Cart</button>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-category="vegetables">
             <img src="./Products Pic/Lettuce.jpg" alt="Ginger">
             <h3>Lettuce</h3>
             <p>Perfect for salads and healthy meals.</p>
             <p class="product-price">₱75.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="meat">
+            <img src="./Products Pic/pork.jpg" alt="Pork">
+            <h3>Pork</h3>
+            <p>High-quality pork cuts, perfect for stews, barbecue, or frying.</p>
+            <p class="product-price">₱200.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="meat">
+            <img src="./Products Pic/chicken.jpg" alt="Chicken">
+            <h3>Chicken</h3>
+            <p>Fresh and tender chicken, ideal for grilling, roasting, or soups.</p>
+            <p class="product-price">₱160.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="meat">
+            <img src="./Products Pic/beef.jpg" alt="Beef">
+            <h3>Beef</h3>
+            <p>Premium beef, juicy and flavorful, great for steaks and stews.</p>
+            <p class="product-price">₱250.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="seafoods">
+            <img src="./Products Pic/squid.jpg" alt="Squid">
+            <h3>Squid</h3>
+            <p>Fresh squid, tender and ideal for frying, grilling, or soups.</p>
+            <p class="product-price">₱220.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="seafoods">
+            <img src="./Products Pic/crab.jpg" alt="Crab">
+            <h3>Crab</h3>
+            <p>Fresh crab with rich flavor, ideal for steaming, soups, or seafood platters.</p>
+            <p class="product-price">₱140.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="seafoods">
+            <img src="./Products Pic/shrimp.webp" alt="Shrimp">
+            <h3>Shrimp</h3>
+            <p>Sweet and succulent shrimp, perfect for stir-fries and seafood dishes.</p>
+            <p class="product-price">₱230.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="fruits">
+            <img src="./Products Pic/banana.jpg" alt="Banana">
+            <h3>Banana</h3>
+            <p>Ripe and naturally sweet bananas, perfect for snacks, desserts, or smoothies.</p>
+            <p class="product-price">₱100.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-category="grains">
+            <img src="./Products Pic/corn grain.jpg" alt="Corn">
+            <h3>Corn</h3>
+            <p>High-quality corn grains, perfect for milling, baking, or livestock feed.</p>
+            <p class="product-price">₱41.28</p>
             <div class="quantity">
               <button class="qty-btn">-</button>
               <span class="qty-value">1</span>
