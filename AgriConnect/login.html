@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriConnect Login</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h2>Login as <span id="loginRole">User</span></h2>
+    <form id="loginForm">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="#">Sign up here</a></p>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    // Read role from URL
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get("role");
+    if(role) {
+      document.getElementById("loginRole").textContent = role.charAt(0).toUpperCase() + role.slice(1);
+    }
+
+    // Optional: handle form submission
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert(`Logging in as ${role || "User"}!`);
+      // You can add actual login logic here
+    });
+  </script>
+</body>
+</html>

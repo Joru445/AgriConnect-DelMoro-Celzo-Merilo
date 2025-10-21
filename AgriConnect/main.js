@@ -13,3 +13,15 @@ buttons.forEach(btn => {
     }
   })
 })
+
+// LOGIN REDIRECT CODE
+const loginButtons = document.querySelectorAll('button[data-link]');
+
+loginButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const link = btn.dataset.link;
+    if (link) {
+      window.location.href = link; // redirect to login page
+    }
+  });
+});
