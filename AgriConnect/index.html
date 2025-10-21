@@ -12,7 +12,7 @@
 
 <body>
   
-  <header>
+  <header class="main-header">
     <img src="logo.png" alt="AgriConnect">
     <nav class="navigation">
       <form action="" method="get">
@@ -29,9 +29,9 @@
         <i class="material-symbols-rounded">settings</i>
         <p>Settings</p>
       </button>
-
     </nav>
   </header>
+
   <main>
     <nav>
       <div class="navigation">
@@ -53,48 +53,34 @@
         </button>
       </div>
     </nav>
-
-    <!--MAIN CONTENT SECTION-->
+<!--MAIN CONTENT SECTION-->
     <section id="home" class="page active">
       <header style="background-image: url(https://as1.ftcdn.net/v2/jpg/11/07/95/44/1000_F_1107954441_EjWGEaVtVGZj2qAmSgw69IctVgTAbyxW.jpg);">
         <h1 class="text">AgriConnect</h1>
         <p class="text-muted">"Connecting Farmers, Growing Futures"</p>
       </header>
-      <!-- INTRO SECTION -->
-      <section class="intro-section">
-        <h2>From Our Field to Your Table</h2>
-          <p>
-            AgriConnect is your digital bridge between <strong>farmers</strong> and <strong>buyers</strong>.
-            Whether you grow fresh produce or seek high-quality agricultural goods, we make trading simple, fair, and direct.
-          </p>
-          <div class="user-buttons">
-            <button class="farmer-button">Shop Fresh Produce</button>
-            <button class="buyer-button">Join as a Farmer</button>
-          </div>
-      </section>
-
-      <!-- FEATURED SECTION-->
+<!-- FEATURED SECTION-->
       <section class="featured-section">
-  <h2>Fresh Picks of the Week</h2>
-  <div class="featured-container">
-    <div class="featured-card">
-      <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg" alt="Tomatoes">
-      <h3>Organic Tomatoes</h3>
-      <p>Freshly picked and full of flavor.</p>
-    </div>
-    <div class="featured-card">
-      <img src="https://ecdn.dhakatribune.net/contents/cache/images/800x450x1/uploads/media/2024/06/11/Mangoes-e5d64091bdab82170e4a80224bed6df7.jpg?jadewits_media_id=22249" alt="Mangoes">
-      <h3>Sweet Mangoes</h3>
-      <p>Locally grown and naturally ripened.</p>
-    </div>
-    <div class="featured-card">
-      <img src="https://www.bhg.com/thmb/Xy272oKSPzsYoQzQE1uzA6r6e8Y=/1878x0/filters:no_upscale():strip_icc()/tango-oakleaf-lettuce-c6f6417e-b835c4813e1d4cbf9d11ddf09fbd2ea6.jpg" alt="Lettuce">
-      <h3>Crisp Lettuce</h3>
-      <p>Perfect for salads and healthy meals.</p>
-    </div>
-  </div>
-</section>
- <!-- GROW WITH US SECTION-->
+        <h2>Fresh Picks of the Week</h2>
+        <div class="featured-container">
+          <div class="featured-card">
+            <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg" alt="Tomatoes">
+            <h3>Organic Tomatoes</h3>
+            <p>Freshly picked and full of flavor.</p>
+          </div>
+          <div class="featured-card">
+            <img src="https://ecdn.dhakatribune.net/contents/cache/images/800x450x1/uploads/media/2024/06/11/Mangoes-e5d64091bdab82170e4a80224bed6df7.jpg?jadewits_media_id=22249" alt="Mangoes">
+            <h3>Sweet Mangoes</h3>
+            <p>Locally grown and naturally ripened.</p>
+          </div>
+          <div class="featured-card">
+            <img src="https://www.bhg.com/thmb/Xy272oKSPzsYoQzQE1uzA6r6e8Y=/1878x0/filters:no_upscale():strip_icc()/tango-oakleaf-lettuce-c6f6417e-b835c4813e1d4cbf9d11ddf09fbd2ea6.jpg" alt="Lettuce">
+            <h3>Crisp Lettuce</h3>
+            <p>Perfect for salads and healthy meals.</p>
+          </div>
+        </div>
+      </section>
+<!-- GROW WITH US SECTION-->
       <section class="grow-section">
         <h2>Ready to Grow with Us?</h2>
         <p>
@@ -107,152 +93,148 @@
         </div>
       </section>
     </section>
-
-
+<!-- PRODUCTS SECTION-->
     <section id="products" class="page">
       <header>
         <h1 class="text">Our Products</h1>
         <p class="text-muted">Fresh from the farm — quality produce for everyone.</p>
       </header>
 
-    <section class="products-section">
-  <div class="products-grid">
+      <section class="products-section">
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="./Products Pic/rice.jpg" alt="Rice">
+            <h3>Rice</h3>
+            <p>Freshly harvested grains ready for milling and trade.</p>
+            <p class="product-price">₱41.28</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+<!-- Placeholder products -->
+          <div class="product-card">
+            <img src="./Products Pic/corn.webp" alt="Corn">
+            <h3>Corn</h3>
+            <p>High-quality corn ideal for food and livestock feed.</p>
+            <p class="product-price">₱13.98</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/rice.jpg" alt="Rice">
-      <h3>Rice</h3>
-      <p>Freshly harvested grains ready for milling and trade.</p>
-      <p class="product-price">₱41.28</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/cabbage.jpg" alt="Cabbage">
+            <h3>Cabbage</h3>
+            <p>Healthy farm-raised cabbage fresh from local farms.</p>
+            <p class="product-price">₱92.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/corn.webp" alt="Corn">
-      <h3>Corn</h3>
-      <p>High-quality corn ideal for food and livestock feed.</p>
-      <p class="product-price">₱13.98</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/onion.jpg" alt="Onions">
+            <h3>Onions</h3>
+            <p>Freshly harvested onions with long shelf life.</p>
+            <p class="product-price">₱49.45</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/cabbage.jpg" alt="Cabbage">
-      <h3>Cabbage</h3>
-      <p>Healthy farm-raised cabbage fresh from local farms.</p>
-      <p class="product-price">₱92.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/tomato.jpg" alt="Tomatoes">
+            <h3>Tomatoes</h3>
+            <p>Vibrant red tomatoes, perfect for cooking and sauces.</p>
+            <p class="product-price">₱42.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/onion.jpg" alt="Onions">
-      <h3>Onions</h3>
-      <p>Freshly harvested onions with long shelf life.</p>
-      <p class="product-price">₱49.45</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/carrots.jpg" alt="Carrots">
+            <h3>Carrots</h3>
+            <p>Crunchy, sweet carrots grown in local farms.</p>
+            <p class="product-price">₱78.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/tomato.jpg" alt="Tomatoes">
-      <h3>Tomatoes</h3>
-      <p>Vibrant red tomatoes, perfect for cooking and sauces.</p>
-      <p class="product-price">₱42.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/eggplant.webp" alt="Eggplant">
+            <h3>Eggplant</h3>
+            <p>Fresh and tender eggplants perfect for healthy dishes.</p>
+            <p class="product-price">₱31.89</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/carrots.jpg" alt="Carrots">
-      <h3>Carrots</h3>
-      <p>Crunchy, sweet carrots grown in local farms.</p>
-      <p class="product-price">₱78.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/ginger.webp" alt="Ginger">
+            <h3>Ginger</h3>
+            <p>Aromatic and spicy ginger roots ideal for cooking and tea.</p>
+            <p class="product-price">₱69.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/eggplant.webp" alt="Eggplant">
-      <h3>Eggplant</h3>
-      <p>Fresh and tender eggplants perfect for healthy dishes.</p>
-      <p class="product-price">₱31.89</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/Mangoes.jpg" alt="Ginger">
+            <h3>Mangoes</h3>
+            <p>Locally grown and naturally ripened.</p>
+            <p class="product-price">₱120.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
 
-    <div class="product-card">
-      <img src="./Products Pic/ginger.webp" alt="Ginger">
-      <h3>Ginger</h3>
-      <p>Aromatic and spicy ginger roots ideal for cooking and tea.</p>
-      <p class="product-price">₱69.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
+          <div class="product-card">
+            <img src="./Products Pic/Lettuce.jpg" alt="Ginger">
+            <h3>Lettuce</h3>
+            <p>Perfect for salads and healthy meals.</p>
+            <p class="product-price">₱75.00</p>
+            <div class="quantity">
+              <button class="qty-btn">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+          </div>
+        </div>
+      </section>
+    </section>
 
-    <div class="product-card">
-      <img src="./Products Pic/Mangoes.jpg" alt="Ginger">
-      <h3>Mangoes</h3>
-      <p>Locally grown and naturally ripened.</p>
-      <p class="product-price">₱120.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="./Products Pic/Lettuce.jpg" alt="Ginger">
-      <h3>Lettuce</h3>
-      <p>Perfect for salads and healthy meals.</p>
-      <p class="product-price">₱75.00</p>
-      <div class="quantity">
-        <button class="qty-btn">-</button>
-        <span class="qty-value">1</span>
-        <button class="qty-btn">+</button>
-      </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
-    </div>
-
-  </div>
-</section>
-</section>
-
-   
     <section id="feedback" class="page">
       <form action="submit.php" method="post">
         <h1>Feedback</h1>
@@ -265,29 +247,29 @@
     </section>
 
     <section id="settings" class="page">
-  <header>
-    <h1 class="text">Settings</h1>
-    <p class="text-muted">Customize your AgriConnect experience</p>
-  </header>
-
-  <form class="settings-form">
-    <div class="setting-option">
-      <label for="theme">Theme:</label>
-      <select id="theme">
-        <option value="light" selected>Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
-
-    <div class="setting-option">
-      <label for="language">Language:</label>
-      <select id="language">
-        <option value="en" selected>English</option>
-        <option value="fil">Filipino</option>
-      </select>
-    </div>
-  </form>
-</section>
+      <header>
+        <h1 class="text">Settings</h1>
+        <p class="text-muted">Customize your AgriConnect experience</p>
+      </header>
+    
+      <form class="settings-form">
+        <div class="setting-option">
+          <label for="theme">Theme:</label>
+          <select id="theme">
+            <option value="light" selected>Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      
+        <div class="setting-option">
+          <label for="language">Language:</label>
+          <select id="language">
+            <option value="en" selected>English</option>
+            <option value="fil">Filipino</option>
+          </select>
+        </div>
+      </form>
+    </section>
 
     <section id="about" class="page">
       <article>
@@ -306,10 +288,6 @@
           </ul>
       </article>
     </section>
-
-    <aside>
-      Related Contents
-    </aside>
   </main>
 
   <footer>
