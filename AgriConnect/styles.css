@@ -419,6 +419,31 @@ main #products .text-muted {
   font-size: 1.1rem;
 }
 
+main #products .product-categories {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+main #products .category-btn {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+main #products .category-btn:hover {
+  background-color: #ccc;
+}
+
+main #products .category-btn.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
 main #products .products-section {
   display: flex;
   flex-direction: column;
@@ -431,16 +456,17 @@ main #products .products-section {
 }
 
 main #products .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  display: flex;
+  flex-wrap: wrap;
   justify-items: center;
   width: 100%;
   max-width: 1000px;
   margin-top: 1rem;
+  gap: 1.5rem;
 }
 
 main #products .product-card {
+  flex: 1 1 200px;
   background-color: var(--color-background);
   border-radius: 18px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
@@ -698,118 +724,4 @@ footer p {
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
-}
-
-/* =========================
-   LOGIN PAGE STYLES
-   ========================= */
-body.login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: var(--color-background);
-}
-
-body.login-page .login-container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-}
-
-body.login-page .login-container h2 {
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-}
-
-body.login-page form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-body.login-page form input {
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  outline: none;
-  transition: border 0.3s;
-}
-
-body.login-page form input:focus {
-  border-color: var(--color-primary);
-}
-
-body.login-page form button {
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--color-primary);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-body.login-page form button:hover {
-  background-color: var(--color-secondary);
-  transform: translateY(-2px);
-}
-
-body.login-page .login-container p {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-body.login-page .login-container p a {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-body.login-page .login-container p a:hover {
-  color: var(--color-secondary);
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  body.login-page .login-container {
-    padding: 1.5rem;
-  }
-
-  body.login-page form input,
-  body.login-page form button {
-    font-size: 0.95rem;
-  }
-}
-
-.product-categories {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.category-btn {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #ddd;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.category-btn:hover {
-  background-color: #ccc;
-}
-
-.category-btn.active {
-  background-color: #4CAF50;
-  color: white;
 }

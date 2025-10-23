@@ -6,6 +6,7 @@
   <title>AgriConnect Login</title>
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login-styles.css">
 </head>
 <body class="login-page">
   <div class="login-container">
@@ -20,19 +21,16 @@
 
   <script src="main.js"></script>
   <script>
-    // Read role from URL
     const params = new URLSearchParams(window.location.search);
     const role = params.get("role");
     if(role) {
       document.getElementById("loginRole").textContent = role.charAt(0).toUpperCase() + role.slice(1);
     }
 
-    // Optional: handle form submission
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
       alert(`Logging in as ${role || "User"}!`);
-      // You can add actual login logic here
     });
   </script>
 </body>
