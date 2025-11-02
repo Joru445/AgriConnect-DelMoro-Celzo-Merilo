@@ -1,13 +1,18 @@
 <?php
+include 'db_connect.php';
 
-include '../config/database.php';
 header('Content-Type: application/json');
 
-$result = $connect->query("SELECT * FROM products");
-$rows = [];
-while($row = $result->fetch_assoc()) {
-    $rows[] = $row;
-}
-echo json_encode($rows);
+$sql = "SELECT * FROM products";
+$result = $connect->query($sql);
 
+$products = [];
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+}
+
+echo json_encode($products);
 ?>
