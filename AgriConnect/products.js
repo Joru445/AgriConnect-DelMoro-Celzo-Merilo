@@ -1,3 +1,6 @@
+let productsLoaded = false;
+let cachedProducts = [];
+
 function getProductImage(product) {
   if (product.image && product.image.trim() !== '') {
     return `./assets/images/${product.image}`;
@@ -21,47 +24,98 @@ function getProductImage(product) {
   }
 }
 
+
+function setupQuantityControls(card, maxQty) {
+  const qtyValue = card.querySelector('.qty-value');
+  const decreaseBtn = card.querySelector('button[data-action="decrease"]');
+  const increaseBtn = card.querySelector('button[data-action="increase"]');
+  let currentQty = 1;
+
+  decreaseBtn.addEventListener('click', () => {
+    if (currentQty > 1) {
+      currentQty--;
+      qtyValue.textContent = currentQty;
+    }
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    if (currentQty < maxQty) {
+      currentQty++;
+      qtyValue.textContent = currentQty;
+    }
+  });
+}
+
 async function loadProducts() {
+  const grid = document.querySelector('.products-grid');
+
+  if (productsLoaded) {
+    renderProducts(cachedProducts, grid);
+    return;
+  }
+
+  grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
+
   try {
     const response = await fetch('backend/get_products.php');
     const products = await response.json();
 
-    const grid = document.querySelector('.products-grid');
-
-    products.forEach(product => {
-      const card = document.createElement('div');
-      card.classList.add('product-card');
-
-      let descHTML = '';
-      if (product.description) {
-        descHTML = `<p>${product.description}</p>`;
-      }
-
-      let priceHTML = '';
-      if (product.price) {
-        priceHTML = `<p class="product-price">₱${product.price}</p>`;
-      }
-
-      const imgSrc = getProductImage(product);
-      card.innerHTML = `
-        <img src="${imgSrc}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        ${descHTML}
-        ${priceHTML}
-        <div class="quantity">
-          <button class="qty-btn">-</button>
-          <span class="qty-value">1</span>
-          <button class="qty-btn">+</button>
-        </div>
-        <button class="add-to-cart">🛒 Add to Cart</button>
-      `;
-
-      grid.appendChild(card);
-    });
+    cachedProducts = products; // save to cache
+    productsLoaded = true;     // mark as loaded
+    renderProducts(products, grid);
   } catch (err) {
     console.error('Failed to load products:', err);
+    grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
   }
 }
 
+function renderProducts(products, grid) {
+  grid.innerHTML = ''; // clear grid
 
-document.querySelector('button[data-target="products"]').addEventListener('click', loadProducts);
+  if (products.length === 0) {
+    grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
+    return;
+  }
+  
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.classList.add('product-card');
+
+    const descHTML = product.description ? `<p>${product.description}</p>` : '';
+    const priceHTML = product.price ? `<p class="product-price">₱${product.price}</p>` : '';
+    const imgSrc = getProductImage(product);
+
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      ${descHTML}
+      ${priceHTML}
+      <div class="quantity">
+        <button class="qty-btn" data-action="decrease">-</button>
+        <span class="qty-value">1</span>
+        <button class="qty-btn" data-action="increase">+</button>
+      </div>
+      <button class="add-to-cart">🛒 Add to Cart</button>
+    `;
+
+    grid.appendChild(card);
+    setupQuantityControls(card, product.quantity || 1);
+  });
+}
+
+function filterProducts(category) {
+  const grid = document.querySelector('.products-grid');
+
+  if (!productsLoaded) return; // do nothing if products haven't loaded
+
+  const filtered = category === 'all'
+    ? cachedProducts
+    : cachedProducts.filter(product => product.category === category);
+
+  renderProducts(filtered, grid);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productBtn = document.querySelector('button[data-target="products"]');
+  productBtn.addEventListener('click', loadProducts);
+});

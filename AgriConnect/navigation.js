@@ -9,7 +9,8 @@ buttons.forEach(btn => {
     pages.forEach(p => p.classList.remove('active'));
     document.getElementById(btn.dataset.target).classList.add('active');
     const targetPage = document.getElementById(btn.dataset.target);
-    if (targetPage) {targetPage.classList.add('active');
+    if (targetPage) {
+      targetPage.classList.add('active');
     }
   })
 })
@@ -25,23 +26,13 @@ loginButtons.forEach(btn => {
   });
 });
 
-const categoryButtons = document.querySelectorAll('.category-btn');
-const productCards = document.querySelectorAll('.product-card');
+document.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
 
-categoryButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active class from all buttons
-    categoryButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+    btn.classList.add('active');
 
-    const category = button.getAttribute('data-category');
-
-    productCards.forEach(card => {
-      if (category === 'all' || card.getAttribute('data-category') === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+    const category = btn.getAttribute('data-category');
+    filterProducts(category);
   });
 });
