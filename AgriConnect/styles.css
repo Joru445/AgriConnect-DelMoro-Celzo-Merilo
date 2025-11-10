@@ -170,26 +170,31 @@ header .navigation button:hover p {
   gap: 0.5rem;
 }
 
-/* MAIN */
 
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  gap: clamp(0.3rem, 1.5vw, 0.5rem);
-}
+/* SIDEBAR NAVIGATION */
 
-/* MAIN NAVIGATION */
-
-main nav {
+.sidebar {
+  position: fixed;
+  top: 16%;
+  width: 2.6rem;
+  height: 40vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: var(--padding-1);
-  background-color: var(--color-background-muted);
+  justify-content: space-between;
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+  padding: 0.5rem;
+  background-color: var(--color-primary);
+  transition: var(--transition-3s);
 }
 
-main nav .navigation {
+.sidebar:hover {
+  width: 9rem;
+}
+
+.sidebar .navigation {
+  position: relative;
+  width: 9rem;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -197,33 +202,65 @@ main nav .navigation {
   background-color: transparent;
 }
 
-main nav .navigation button {
+.sidebar .navigation .button {
   display: flex;
+  align-items: center;
   min-width: 6rem;
-  padding: 0 var(--padding-1);
+  height: 3rem;
   border: 0;
   border-radius: 8px;
+  text-decoration: none;
+  padding: 0 0.6rem;
   color: var(--color-text);
   background-color: transparent;
 }
 
-main nav .navigation button:hover {
-  background-color: var(--color-background-highlight);
+.sidebar .navigation .button:hover {
+  background-color: var(--color-background);
 }
 
-main nav .navigation button.active {
-  background-color: var(--color-background-highlight);
+.sidebar .navigation .button.active {
+  background-color: var(--color-background);
 }
 
-main .navigation button i {
+.sidebar .navigation .button:hover i,
+.sidebar .navigation .button:hover p {
   color: var(--color-text-muted);
-  font-size: clamp(1.2rem,  2vw, 1.4rem);
 }
 
-main .navigation button p {
+.sidebar .navigation .button.active i,
+.sidebar .navigation .button.active p {
+  color: var(--color-text-muted);
+}
+
+.sidebar .navigation .button i,
+.sidebar .navigation .button p {
+  color: var(--color-background);
+}
+
+.navigation .button i {
+  color: var(--color-text-muted);
+  font-size: clamp(1.6rem,  2vw, 1.8rem);
+}
+
+.navigation .button p {
+  margin: 0 1rem;
   font-size: clamp(0.8rem,  2vw, 1rem);
+  font-weight: bold;
 }
 
+
+
+/* MAIN */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.3rem, 1.5vw, 0.5rem);
+}
 
 /* MAIN  CONTENT SECTION */
 
@@ -653,26 +690,6 @@ footer p {
 /* PHONE SCREEN WIDTH 768px */
 
 @media (max-width: 768px) {
-
-  main {
-    flex-direction: column;
-  }
-
-  main nav {
-    padding: 0 0.3rem;
-    justify-content: center;
-  }
-
-  main nav .navigation {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    padding: 0.3rem;
-  }
-
-  main nav .navigation button {
-    justify-content: center;
-  }
 
   main .page .grow-section {
     max-height: none;
