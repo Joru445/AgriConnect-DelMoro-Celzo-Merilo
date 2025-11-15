@@ -15,6 +15,17 @@ buttons.forEach(btn => {
   })
 })
 
+document.querySelectorAll('.chevron-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest(".sidebar");
+    container.classList.toggle('expanded');
+
+    const icon = btn.querySelector('.chevron');
+    icon.classList.toggle('right')
+    icon.classList.toggle('left');
+  })
+});
+
 const loginButtons = document.querySelectorAll('button[data-link]');
 
 loginButtons.forEach(btn => {

@@ -14,7 +14,6 @@
 
   --padding-05: 0.5rem;
   --padding-1: 1rem;
-
 }
 
 /* Dark Mode */
@@ -180,16 +179,55 @@ header .navigation button:hover p {
   height: 40vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 0 8px 8px 0;
-  overflow: hidden;
   padding: 0.5rem;
+  overflow: hidden;
   background-color: var(--color-primary);
+  transition: var(--transition-3s);
+  z-index: 999;
+}
+
+.sidebar.expanded {
+  width: 9rem;
+}
+
+.sidebar .navigation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: transparent;
+}
+
+.sidebar .expand-navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar .expand-navigation .chevron-button {
+  display: flex;
+  height: 2.5rem;
+  border: none;
+  background-color: transparent;
+}
+
+.sidebar .expand-navigation .chevron-button .chevron {
+  font-size: clamp(1.6rem,  2vw, 1.8rem);
+  font-weight: bold;
+  color: var(--color-background);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron:hover {
+  transform: scale(1.2);
   transition: var(--transition-3s);
 }
 
-.sidebar:hover {
-  width: 9rem;
+.sidebar .expand-navigation .chevron-button .chevron.right {
+  transform: rotate(0deg);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron.left {
+  transform: rotate(180deg);
 }
 
 .sidebar .navigation {
@@ -213,6 +251,7 @@ header .navigation button:hover p {
   padding: 0 0.6rem;
   color: var(--color-text);
   background-color: transparent;
+  transition: var(--transition-3s);
 }
 
 .sidebar .navigation .button:hover {
@@ -250,7 +289,6 @@ header .navigation button:hover p {
 }
 
 
-
 /* MAIN */
 
 main {
@@ -265,9 +303,10 @@ main {
 /* MAIN  CONTENT SECTION */
 
 main .page {
-  flex: 3;
+  flex: 1;
   display: none;
   flex-direction: column;
+  width: 80%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
@@ -606,8 +645,7 @@ main .page form {
   margin: 1rem;
   gap: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.15);
-  background-color: var(--color-background-highlight);
+  background-color: transparent;
 }
 
 main .page form input,
@@ -690,6 +728,10 @@ footer p {
 /* PHONE SCREEN WIDTH 768px */
 
 @media (max-width: 768px) {
+
+  main .page {
+    width: 95%;
+  }
 
   main .page .grow-section {
     max-height: none;

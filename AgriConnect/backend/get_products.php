@@ -14,6 +14,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-// echo json_encode($products);
+echo json_encode($products);
 
 ?>
