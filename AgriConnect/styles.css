@@ -17,10 +17,10 @@
 }
 
 /* Dark Mode */
-body.dark {
-  --color-background: hsl(0, 0%, 10%);
-  --color-background-muted: hsl(0, 0%, 15%);
-  --color-background-highlight: hsl(0, 0%, 20%);
+.dark {
+  --color-background: hsl(0, 0%, 5%);
+  --color-background-muted: hsl(0, 0%, 8%);
+  --color-background-highlight: hsl(0, 0%, 10%);
 
   --color-text: hsl(0, 0%, 95%);
   --color-text-muted: hsl(0, 0%, 85%);
@@ -34,10 +34,12 @@ body.dark {
 
 h1 {
   font-size: clamp(1.8rem, 5vw, 2rem);
+  color: var(--color-text);
 }
 
 p {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
+  color: var(--color-text);
 }
 
 button {
@@ -104,7 +106,7 @@ header .navigation form .search {
   padding: 0.3rem var(--padding-05);
   border-radius: 28px;
   gap: 0.3rem;
-  background-color: var(--color-background);
+  background-color: var(--color-background-highlight);
   transition: var(--transition-3s);
 }
 
@@ -152,11 +154,13 @@ header .navigation button:hover {
 
 header .navigation button i {
   font-size: clamp(1.2rem,  2vw, 1.4rem);
+  color: var(--color-background);
 }
 
 header .navigation button p {
   display: none;
   font-size: clamp(0.8rem,  2vw, 1rem);
+  color: var(--color-background);
 }
 
 header .navigation button:hover p {
@@ -206,9 +210,16 @@ header .navigation button:hover p {
 
 .sidebar .expand-navigation .chevron-button {
   display: flex;
+  align-items: center;
   height: 2.5rem;
+  padding: 0.5rem;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
+}
+
+.sidebar .expand-navigation .chevron-button:hover {
+  background-color: rgba(0,0,0,0.3);
 }
 
 .sidebar .expand-navigation .chevron-button .chevron {
@@ -331,7 +342,7 @@ main .page header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: var(--color-background-muted);
+  background-color: var(--color-background);
 }
 
 main .page header h1.text {
@@ -406,7 +417,7 @@ main .page .grow-section {
   max-height: 400px;
   padding: 1rem;
   margin: 1rem 0.5rem;
-  background-color: #FFF9E6; /* warm cream */
+  background-color: var(--color-background-highlight);
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0,0,0,0.15);
   transition: transform var(--transition-3s);
@@ -548,7 +559,6 @@ main #products .product-card {
   overflow: hidden;
   text-align: center;
   width: 100%;
-  max-width: 280px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.5s ease forwards;
@@ -634,6 +644,34 @@ main #products .add-to-cart {
 main #products .add-to-cart:hover {
   background-color: #1b5e20;
   transform: scale(1.05);
+}
+
+main #products .skeleton-card {
+  flex: 1 1 200px;
+  width: 100%;
+  border-radius: 8px;
+  background: var(--color-background);
+}
+
+main #products .skel-img,
+main #products .skel-line {
+  background: var(--color-background-muted);
+  border-radius: 4px;
+  animation: pulse 1.3s infinite ease-in-out;
+}
+
+main #products .skel-img {
+  width: 100%;
+  height: 180px;
+}
+
+main #products .skel-line {
+  height: 14px;
+  margin: 15px 10px;
+}
+
+main #products .skel-line.short {
+  margin: 10px 10px;
 }
 
 /* MAIN FEEDBACK FORM SECTION */
@@ -782,4 +820,10 @@ footer p {
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+@keyframes pulse {
+  0% { opacity: .4; }
+  50% { opacity: .7; }
+  100% { opacity: .4; }
 }

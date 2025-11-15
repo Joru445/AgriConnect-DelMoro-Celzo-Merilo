@@ -15,6 +15,7 @@ buttons.forEach(btn => {
   })
 })
 
+
 document.querySelectorAll('.chevron-button').forEach(btn => {
   btn.addEventListener('click', () => {
     const container = btn.closest(".sidebar");
@@ -25,6 +26,14 @@ document.querySelectorAll('.chevron-button').forEach(btn => {
     icon.classList.toggle('left');
   })
 });
+
+
+const toggleDark = document.querySelector('#dark-toggle');
+
+toggleDark.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
 
 const loginButtons = document.querySelectorAll('button[data-link]');
 

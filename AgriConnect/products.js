@@ -25,6 +25,30 @@ function getProductImage(product) {
 }
 
 
+function showSkeleton(count = 6) {
+  const container = document.querySelector('.products-grid');
+  container.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement('div');
+    card.className = 'skeleton-card';
+
+    card.innerHTML = `
+      <div class="skel-img"></div>
+      <div class="skel-line short"></div>
+      <div class="skel-line"></div>
+    `;
+
+    fragment.appendChild(card);
+  }
+
+  container.appendChild(fragment);
+}
+
+
+
 function setupQuantityControls(card, maxQty) {
   const qtyValue = card.querySelector('.qty-value');
   const decreaseBtn = card.querySelector('button[data-action="decrease"]');
@@ -46,6 +70,12 @@ function setupQuantityControls(card, maxQty) {
   });
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  showSkeleton(5); // default skeleton
+});
+
+
 async function loadProducts() {
   const grid = document.querySelector('.products-grid');
 
@@ -53,9 +83,7 @@ async function loadProducts() {
     renderProducts(cachedProducts, grid);
     return;
   }
-
-  grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
-
+  
   try {
     const response = await fetch('backend/get_products.php');
     const products = await response.json();
@@ -65,7 +93,6 @@ async function loadProducts() {
     renderProducts(products, grid);
   } catch (err) {
     console.error('Failed to load products:', err);
-    grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
   }
 }
 
