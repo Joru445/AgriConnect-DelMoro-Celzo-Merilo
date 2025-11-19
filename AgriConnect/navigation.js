@@ -46,6 +46,7 @@ loginButtons.forEach(btn => {
   });
 });
 
+
 //PRODUCT'S CATEGORY BUTTONS FOR NAVIGATION
 document.querySelectorAll('.category-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -56,4 +57,10 @@ document.querySelectorAll('.category-btn').forEach(btn => {
     const category = btn.getAttribute('data-category');
     filterProducts(category);
   });
+});
+
+
+// Logout when browser/tab is closed
+window.addEventListener("beforeunload", function () {
+    navigator.sendBeacon("backend/logout.php");
 });
