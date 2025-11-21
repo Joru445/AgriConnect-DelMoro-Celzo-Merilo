@@ -1,10 +1,24 @@
 <?php
 session_start();
-// if (!isset($_SESSION["user_id"])) {
-//   header("Location: login.html");
-//   exit;
-// }
+include "backend/db_connect.php";
+
+if (!isset($_SESSION['user_id'])) {
+    $loggedIn = false;
+} else {
+    $loggedIn = true;
+    $user_id = $_SESSION['user_id'];
+    
+    $role = $_SESSION['role'];
+    $isPartner = ($role === 'farmer');
+    // Fetch user info from database
+    $stmt = $connect->prepare("SELECT username, email, role FROM users WHERE id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +35,7 @@ session_start();
   <?php include "partials/header.php"; ?>
   <?php include "partials/sidebar.php"; ?>
 
-
-  <main>
+  <main class="main-content">
 <!--MAIN CONTENT SECTION-->
     <?php include "partials/hero.php"; ?>
 <!-- PRODUCTS SECTION-->
@@ -41,5 +54,6 @@ session_start();
 
   <script src="navigation.js"></script>
   <script src="products.js"></script>
+  
 </body>
 </html>

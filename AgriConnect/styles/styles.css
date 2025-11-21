@@ -714,36 +714,10 @@ main aside {
 }
 
 /* SETTINGS PAGE */
-main .settings-form {
+
+main #settings {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin: 6rem auto 2rem auto;
-  width: 90%;
-  max-width: 400px;
-  background-color: var(--color-background-highlight);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.15);
-}
-
-main .setting-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-main .setting-option label {
-  font-weight: bold;
-  color: var(--color-text);
-}
-
-main .setting-option select {
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: white;
-  cursor: pointer;
+  padding: 1rem 4rem;
 }
 
 
@@ -799,7 +773,7 @@ footer p {
     transform: translateY(0);
   }
 }
-/*TAGLINE & SHORT DESCRIPTION*/
+
 .home-info {
   text-align: center;
   padding: 1.5rem 1rem 2rem;

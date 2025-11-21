@@ -3,7 +3,7 @@ let cachedProducts = [];
 
 function getProductImage(product) {
   if (product.image && product.image.trim() !== '') {
-    return `./assets/images/${product.image}`;
+    return `./uploads${product.image}`;
   }
 
   switch (product.category) {

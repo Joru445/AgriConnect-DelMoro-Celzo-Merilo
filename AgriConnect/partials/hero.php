@@ -1,3 +1,6 @@
+<?php
+$loggedIn = isset($_SESSION['user_id']);
+?>
 <section id="home" class="page active">
   <header style="background-image: url('https://i.pinimg.com/1200x/10/c2/6c/10c26c307302dd487a3fe8b8653da27e.jpg');">
     <h1 class="text"><span class="agri">agri</span><span class="connect">connect</span></h1>
@@ -14,7 +17,7 @@
     </div>
   </section>-->
 <!-- GROW WITH US SECTION-->
-<?php if (!isset($_SESSION['user_id'])): ?>
+<?php if (!$loggedIn): ?>
   <section class="grow-section">
     <h2>Ready to Grow with Us?</h2>
     <p>
