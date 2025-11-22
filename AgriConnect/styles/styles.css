@@ -318,10 +318,8 @@ main .page {
   display: flex;
   flex-direction: column;
   width: 80%;
-  opacity: 1;
-  visibility: visible;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
-  padding: var(--padding-05);
+  padding: 3rem;
   background-color: var(--color-background-muted);
 }
 
@@ -364,6 +362,10 @@ main .page article {
   display: flex;
   flex-direction: column;
   padding: 1em;
+}
+
+main #home {
+  padding: 1rem;
 }
 
 /* FEATURED SECTION */
@@ -681,8 +683,6 @@ main #products .skel-line.short {
 main .page form {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  margin: 1rem;
   gap: 1rem;
   border-radius: 8px;
   background-color: transparent;
@@ -697,29 +697,11 @@ main .page form button {
   padding: var(--padding-05) var(--padding-1) ;
 }
 
-/* MAIN ABOUT SECTION */
-
-main .page .services {
-  display: flex;
-  justify-content: center;
-}
-
-/* MAIN ASIDE */
-
-main aside {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--padding-1);
-  background-color: var(--color-background-muted);
-}
 
 /* SETTINGS PAGE */
 
 main #settings {
   display: flex;
-  padding: 1rem 4rem;
 }
 
 

@@ -43,5 +43,6 @@ if (isset($_SESSION['user_id'])) {
 
   <script src="navigation.js"></script>
   <script src="products.js"></script>
+  <script src="settings.js"></script>
 </body>
 </html>

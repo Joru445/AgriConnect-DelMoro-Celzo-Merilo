@@ -1,3 +1,13 @@
+<?php
+session_start();
+$loggedIn = isset($_SESSION['user_id']);
+$user = $loggedIn ? [
+    'username' => $_SESSION['username'] ?? '',
+    'email' => $_SESSION['email'] ?? '',
+    'role' => $_SESSION['role'] ?? ''
+] : null;
+?>
+
 <section class="page" id="settings">
   <h1>Settings</h1>
   <?php if ($loggedIn): ?>
