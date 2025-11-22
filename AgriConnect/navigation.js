@@ -1,20 +1,48 @@
 const buttons = document.querySelectorAll('.navigation button');
-const pages = document.querySelectorAll('.page');
+const mainContainer = document.getElementById('main-content'); // AJAX injects content here
 
+// Load a partial into main content
+async function loadPage(pageName) {
+  if (!mainContainer) return;
+
+  mainContainer.innerHTML = "<p class='loading-message'>Loading...</p>";
+
+  try {
+    const response = await fetch(`partials/${pageName}.php`);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const html = await response.text();
+    mainContainer.innerHTML = html;
+    console.log(html);
+
+    switch(pageName) {
+      case "products":
+        if (typeof initProductsPage === "function") initProductsPage();
+        break;
+      case "feedback":
+        if (typeof initFeedbackPage === "function") initFeedbackPage();
+        break;
+      case "home":
+        if (typeof initHeroPage === "function") initHeroPage();
+        break;
+    }
+
+  } catch (err) {
+    mainContainer.innerHTML = "<p class='error'>Failed to load page.</p>";
+    console.error("Failed to load partial:", err);
+  }
+}
+
+// Sidebar navigation buttons
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
     buttons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    pages.forEach(p => p.classList.remove('active'));
-    document.getElementById(btn.dataset.target).classList.add('active');
-    const targetPage = document.getElementById(btn.dataset.target);
-    if (targetPage) {
-      targetPage.classList.add('active');
-    }
-  })
-})
-
+    const targetPage = btn.dataset.target;
+    if (targetPage) loadPage(targetPage);
+  });
+});
 
 document.querySelectorAll('.chevron-button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -22,45 +50,25 @@ document.querySelectorAll('.chevron-button').forEach(btn => {
     container.classList.toggle('expanded');
 
     const icon = btn.querySelector('.chevron');
-    icon.classList.toggle('right')
+    icon.classList.toggle('right');
     icon.classList.toggle('left');
-  })
+  });
 });
 
-
+// Dark mode toggle
 const toggleDark = document.querySelector('#dark-toggle');
-
-toggleDark.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
-
-
-const loginButtons = document.querySelectorAll('button[data-link]');
-
-loginButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const link = btn.dataset.link;
-    if (link) {
-      window.location.href = link;
-    }
+if (toggleDark) {
+  toggleDark.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
   });
-});
+}
 
-
-//PRODUCT'S CATEGORY BUTTONS FOR NAVIGATION
-document.querySelectorAll('.category-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-
-    btn.classList.add('active');
-
-    const category = btn.getAttribute('data-category');
-    filterProducts(category);
-  });
-});
-
-
-// Logout when browser/tab is closed
+// Optional: logout on tab close
 window.addEventListener("beforeunload", function () {
-    navigator.sendBeacon("backend/logout.php");
+  navigator.sendBeacon("backend/logout.php");
+});
+
+// Load default page (home/hero) on first load
+document.addEventListener('DOMContentLoaded', () => {
+  loadPage("home");
 });

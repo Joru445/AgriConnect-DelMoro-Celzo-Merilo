@@ -315,20 +315,14 @@ main {
 
 main .page {
   flex: 1;
-  display: none;
+  display: flex;
   flex-direction: column;
   width: 80%;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
   padding: var(--padding-05);
   background-color: var(--color-background-muted);
-}
-
-main .page.active {
-  display: flex;
-  opacity: 1;
-  visibility: visible;
 }
 
 main .page header {
@@ -505,6 +499,13 @@ main #products .text-muted {
   font-size: 1.1rem;
 }
 
+main #products .upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+
 main #products .product-categories {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -559,6 +560,7 @@ main #products .product-card {
   overflow: hidden;
   text-align: center;
   width: 100%;
+  max-width: 300px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.5s ease forwards;

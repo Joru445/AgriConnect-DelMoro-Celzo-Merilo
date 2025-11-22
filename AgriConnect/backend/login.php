@@ -1,4 +1,4 @@
-<?php
+<?php 
 include "db_connect.php";
 session_start();
 
@@ -13,17 +13,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
+
         if (password_verify($password, $user["password"])) {
+
             $_SESSION["user_id"]  = $user["id"];
             $_SESSION["username"] = $user["username"];
             $_SESSION["role"]     = $user["role"];
+
             header("Location: ../dashboard.php");
             exit;
+
         } else {
-            echo "Incorrect password.";
+            header("Location: ../login.html?error=wrongpassword");
+            exit;
         }
+
     } else {
-        echo "Account not found.";
+        header("Location: ../login.html?error=notfound");
+        exit;
     }
 }
 ?>

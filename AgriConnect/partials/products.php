@@ -1,3 +1,8 @@
+<?php
+session_start();
+$isPartner = isset($_SESSION['role']) && $_SESSION['role'] === 'farmer';
+?>
+
 <section id="products" class="page">
   <header>
     <h1 class="text">Our Products</h1>

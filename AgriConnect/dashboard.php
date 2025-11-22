@@ -2,15 +2,13 @@
 session_start();
 include "backend/db_connect.php";
 
-if (!isset($_SESSION['user_id'])) {
-    $loggedIn = false;
-} else {
+$loggedIn = false;
+$user = null;
+
+if (isset($_SESSION['user_id'])) {
     $loggedIn = true;
     $user_id = $_SESSION['user_id'];
-    
-    $role = $_SESSION['role'];
-    $isPartner = ($role === 'farmer');
-    // Fetch user info from database
+
     $stmt = $connect->prepare("SELECT username, email, role FROM users WHERE id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
@@ -35,17 +33,8 @@ if (!isset($_SESSION['user_id'])) {
   <?php include "partials/header.php"; ?>
   <?php include "partials/sidebar.php"; ?>
 
-  <main class="main-content">
-<!--MAIN CONTENT SECTION-->
-    <?php include "partials/hero.php"; ?>
-<!-- PRODUCTS SECTION-->
-    <?php include "partials/products.php"; ?>
-<!-- FEEDBACK SECTION-->
-    <?php include "partials/feedback.php"; ?>
-<!-- SETTINGS SECTION-->
-    <?php include "partials/settings.php"; ?>
-<!-- INBOX SECTION-->
-    <?php include "partials/inbox.php"; ?>
+  <main class="main-content" id="main-content">
+    <p class="loading-message">Loading...</p>
   </main>
 
   <footer>
@@ -54,6 +43,5 @@ if (!isset($_SESSION['user_id'])) {
 
   <script src="navigation.js"></script>
   <script src="products.js"></script>
-  
 </body>
 </html>

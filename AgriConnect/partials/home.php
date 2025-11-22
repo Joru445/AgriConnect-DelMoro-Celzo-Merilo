@@ -1,7 +1,7 @@
 <?php
 $loggedIn = isset($_SESSION['user_id']);
 ?>
-<section id="home" class="page active">
+<section id="home" class="page">
   <header style="background-image: url('https://i.pinimg.com/1200x/10/c2/6c/10c26c307302dd487a3fe8b8653da27e.jpg');">
     <h1 class="text"><span class="agri">agri</span><span class="connect">connect</span></h1>
   </header>

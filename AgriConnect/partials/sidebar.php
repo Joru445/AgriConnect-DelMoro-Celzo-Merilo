@@ -21,7 +21,7 @@
         <i class='material-symbols-rounded'>feedback</i>
         <p>Feedback</p>
       </button>
-      <a href="#about" class="button">
+      <a href="#" class="button">
         <i class='material-symbols-rounded'>info</i>
         <p>About</p>
       </a>
