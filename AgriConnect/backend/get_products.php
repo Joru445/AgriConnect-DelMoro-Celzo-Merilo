@@ -3,7 +3,14 @@ include 'db_connect.php';
 
 header('Content-Type: application/json');
 
-$sql = "SELECT * FROM products";
+$sql = "
+    SELECT
+        p.*,
+        u.username AS farmer_name
+    FROM products p
+    JOIN users u ON p.farmer_id = u.id
+";
+
 $result = $connect->query($sql);
 
 $products = [];
@@ -15,5 +22,4 @@ if ($result && $result->num_rows > 0) {
 }
 
 echo json_encode($products);
-
 ?>

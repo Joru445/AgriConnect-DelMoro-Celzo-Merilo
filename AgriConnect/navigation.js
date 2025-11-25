@@ -63,10 +63,20 @@ if (toggleDark) {
   });
 }
 
-// Optional: logout on tab close
-window.addEventListener("beforeunload", function () {
-  navigator.sendBeacon("backend/logout.php");
-});
+// Log out after 15mins of inactivity;
+function resetTimer() {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    fetch("backend/logout.php").then(() => {
+      window.location.href = "login.php";
+    });
+  }, 15 * 60 * 1000); // 15 minutes
+}
+
+window.onload = resetTimer;
+document.onmousemove = resetTimer;
+document.onkeypress = resetTimer;
+
 
 // Load default page (home/hero) on first load
 document.addEventListener('DOMContentLoaded', () => {

@@ -11,17 +11,16 @@
 <body class="login-page">
   <div class="login-container">
     <h2>Log in</h2>
+    <div id="error-box"></div>
     <form action="backend/login.php" method="POST" id="loginForm">
       <input type="email" name="email" id="email" placeholder="Email" required>
       <input type="password" name="password" id="password" placeholder="Password" required>
       <input type="hidden" name="role" id="roleInput">
-      <div id="error-box"></div>
       <button type="submit">Log in</button>
     </form>
     <p>Don't have an account? <a href="register.html">Sign up here</a></p>
   </div>
 
-  <script src="main.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const role = params.get("role");

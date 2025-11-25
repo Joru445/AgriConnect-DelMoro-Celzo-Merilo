@@ -66,15 +66,17 @@ function renderProducts(products, grid) {
 
     const descHTML = product.description ? `<p>${product.description}</p>` : '';
     const priceHTML = product.price ? `<p class="product-price">₱${product.price}</p>` : '';
-    const imgSrc = product.image && product.image.trim() !== '' ? 
-                   `./uploads/${product.image}` : 
-                   `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
+    const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
+    const imgSrc = product.image && product.image.trim() !== '' ?
+                  `./uploads/${product.image}` :
+                  `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
 
     card.innerHTML = `
       <img src="${imgSrc}" alt="${product.name}">
       <h3>${product.name}</h3>
       ${descHTML}
       ${priceHTML}
+      ${farmerHTML}
       <div class="quantity">
         <button class="qty-btn" data-action="decrease">-</button>
         <span class="qty-value">1</span>
