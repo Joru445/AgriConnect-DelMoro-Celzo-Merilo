@@ -41,8 +41,8 @@ if (isset($_SESSION['user_id'])) {
     <p>© 2025 AgriConnect | Empowering Farmers and Consumers</p>
   </footer>
 
-  <script src="navigation.js"></script>
-  <script src="products.js"></script>
-  <script src="settings.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/products.js"></script>
+  <script src="scripts/settings"></script>
 </body>
 </html>

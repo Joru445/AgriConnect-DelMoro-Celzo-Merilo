@@ -83,6 +83,12 @@ header.main-header {
   background-color: var(--color-primary);
 }
 
+header.main-header p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-background);
+}
+
 header img {
   max-height: 4rem;
 }
@@ -158,13 +164,13 @@ header .navigation button i {
 }
 
 header .navigation button p {
-  display: none;
+  opacity: 0;
   font-size: clamp(0.8rem,  2vw, 1rem);
   color: var(--color-background);
 }
 
 header .navigation button:hover p {
-  display: flex;
+  opacity: 1;
 }
 
 .navigation button {
@@ -368,42 +374,9 @@ main #home {
   padding: 1rem;
 }
 
-/* FEATURED SECTION */
-
-main .featured-section {
-  background-color: var(--color-background-highlight);
-  padding: 1rem 0.2rem;
-  margin: 2rem 0.5rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-main .featured-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 1rem 0;
-}
-
-main .featured-card {
-  background-color: var(--color-background);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: clamp(150px, 20vw, 200px);
-}
-
-main .featured-card img {
-  width: 100%;
-  border-radius: 8px;
-  height: 120px;
-  object-fit: cover;
-}
-
 /* GROW WITH US SECTION */
 
-main .page .grow-section {
+main #home .grow-section {
   flex: 1 1;
   display: flex;
   justify-content: center;
@@ -413,37 +386,37 @@ main .page .grow-section {
   max-height: 400px;
   padding: 1rem;
   margin: 1rem 0.5rem;
-  background-color: var(--color-background-highlight);
+  background-color: var(--color-background-muted);
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0,0,0,0.15);
   transition: transform var(--transition-3s);
 }
 
-main .page .grow-section:hover {
+main #home .grow-section:hover {
   transform: scale(1.01);
 }
 
-main .page .grow-section h2 {
+main #home .grow-section h2 {
   color: var(--color-primary);
   font-size: clamp(1.5rem, 3vw, 2rem);
   margin-bottom: 0.5rem;
 }
 
-main .page .grow-section p {
+main #home .grow-section p {
   color: var(--color-text-muted);
   max-width: 600px;
   font-size: clamp(1rem, 2vw, 1.2rem);
   margin-bottom: 1rem;
 }
 
-main .page .grow-section .grow-buttons {
+main #home .grow-section .grow-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
 }
 
-main .page .grow-section .grow-buttons button {
+main #home .grow-section .grow-buttons button {
   padding: 0.7rem 1.5rem;
   font-weight: bold;
   border: none;
@@ -451,26 +424,64 @@ main .page .grow-section .grow-buttons button {
   transition: var(--transition-3s);
 }
 
-main .page .grow-section .grow-buttons .buyer-button {
+main #home .grow-section .grow-buttons .buyer-button {
   background-color: var(--color-secondary);
   color: var(--color-background);
 }
 
-main .page .grow-section .grow-buttons .farmer-button {
+main #home .grow-section .grow-buttons .farmer-button {
   background-color: var(--color-primary);
   color: var(--color-background);
 }
 
-main .page .grow-section .grow-buttons button:hover {
+main #home .grow-section .grow-buttons button:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+}
+
+/* FEATURED SECTION */
+
+main #home .featured-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  background-color: var(--color-background-muted);
+}
+
+main #home .featured-section .stores-near-you {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 50vh;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+main #home .featured-section .store-card {
+  flex: 1 1 200px;
+  background-color: var(--color-background);
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 /* MAIN PRODUCTS SECTION */
 
 main #products header {
   text-align: center;
-  padding: 40px 20px 10px;
+  border-radius: 8px;
 }
 
 main #products header .text {
@@ -550,6 +561,7 @@ main #products .products-grid {
   justify-items: center;
   width: 100%;
   max-width: 1000px;
+  min-height: 50vh;
   margin-top: 1rem;
   gap: 1.5rem;
 }

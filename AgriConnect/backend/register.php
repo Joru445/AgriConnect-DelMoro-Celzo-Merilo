@@ -8,6 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST["password"]);
     $role = isset($_POST['role']) ? $_POST['role'] : 'customer';
 
+    $province = !empty($_POST['province']) ? $_POST['province'] : NULL;
+    $city     = !empty($_POST['city']) ? $_POST['city'] : NULL;
+    $barangay = !empty($_POST['barangay']) ? $_POST['barangay'] : NULL;
 
     if (empty($username) || empty($email) || empty($password)) {
         echo "Please fill in all required fields.";
@@ -26,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $connect->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $username, $email, $hashed_password, $role);
+    $stmt = $connect->prepare("INSERT INTO users (username, email, password, role, province, city, barangay) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $username, $email, $hashed_password, $role, $province, $city, $barangay);
 
     if ($stmt->execute()) {
-        echo "Registration successful! You can now <a href='../login.html'>log in</a>.";
-
+        header("Location: ../login.html");
+        exit;
     } else {
         echo "Error: " . $stmt->error;
     }
