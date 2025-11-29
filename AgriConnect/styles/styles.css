@@ -1,6 +1,7 @@
 :root {
   --color-primary: hsl(120, 30%, 30%);
   --color-secondary: hsl(120, 30%, 40%);
+  --color-accent: hsl(120, 55%, 45%);
 
   --color-background: hsl(0, 0%, 95%);
   --color-background-muted: hsl(0, 0%, 90%);
@@ -66,8 +67,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  gap: clamp(0.3rem, 1.5vw, 0.5rem);
-  background-color: var(--color-background);
+  background-color: var(--color-background-highlight);
 }
 
 /* HEADER */
@@ -78,6 +78,7 @@ header.main-header {
   justify-content: space-between;
   top: 0;
   padding: 0 var(--padding-1);
+  box-shadow: 0 0px 32px rgba(0, 0, 0, 0.4);
   gap: 1rem;
   z-index: 999;
   background-color: var(--color-primary);
@@ -112,7 +113,7 @@ header .navigation form .search {
   padding: 0.3rem var(--padding-05);
   border-radius: 28px;
   gap: 0.3rem;
-  background-color: var(--color-background-highlight);
+  background-color: var(--color-background);
   transition: var(--transition-3s);
 }
 
@@ -136,7 +137,7 @@ header .navigation form .search .search-input {
 
 header .navigation form .search .search-input::placeholder,
 header .navigation form .search .search-icon {
-  color: rgba(0, 0, 0, 0.25);
+  color: var(--color-text-highlight);
 }
 
 header .navigation button {
@@ -192,6 +193,7 @@ header .navigation button:hover p {
   border-radius: 0 8px 8px 0;
   padding: 0.5rem;
   overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   background-color: var(--color-primary);
   transition: var(--transition-3s);
   z-index: 999;
@@ -314,7 +316,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.3rem, 1.5vw, 0.5rem);
 }
 
 /* MAIN  CONTENT SECTION */
@@ -323,27 +324,29 @@ main .page {
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
-  padding: 3rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
   background-color: var(--color-background-muted);
 }
 
-main .page header {
+main .page .home-header {
   position: static;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 200px;
-  padding: 1em;
+  padding: 0.5em;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--color-background);
 }
 
-main .page header h1.text {
+main .page .home-header h1.text {
   font-weight: 700;
   text-align: center;
   margin: 0;
@@ -352,12 +355,12 @@ main .page header h1.text {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
-main .page header h1.text .agri {
+main .page .home-header h1.text .agri {
   color: #ffd166;
   font-weight: bold;
 }
 
-main .page header h1.text .connect {
+main .page .home-header h1.text .connect {
   color: #f5f5dc;
   font-size: 2rem;
 }
@@ -371,7 +374,7 @@ main .page article {
 }
 
 main #home {
-  padding: 1rem;
+  padding: 0;
 }
 
 /* GROW WITH US SECTION */
@@ -449,6 +452,7 @@ main #home .featured-section {
   margin: 0.5rem;
   border-radius: 8px;
   text-align: center;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08);
   background-color: var(--color-background-muted);
 }
 
@@ -472,6 +476,7 @@ main #home .featured-section .store-card {
   text-align: center;
   width: 100%;
   max-width: 280px;
+  height: 300px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.5s ease forwards;
@@ -479,9 +484,17 @@ main #home .featured-section .store-card {
 
 /* MAIN PRODUCTS SECTION */
 
+main #products {
+  padding: 0;
+  background-color: var(--color-background);
+}
+
 main #products header {
   text-align: center;
   border-radius: 8px;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: transparent;
 }
 
 main #products header .text {
@@ -529,9 +542,10 @@ main #products .category-btn {
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
   border: none;
-  background-color: #ddd;
+  background-color: var(--color-background-highlight);
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s;
 }
 
@@ -549,11 +563,11 @@ main #products .products-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0.5rem;
+  margin: 1rem;
   padding: 2rem 1rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
-  background-color: var(--color-background-highlight);
+  border-radius: 8px;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08);
+  background-color: var(--color-background-muted);
 }
 
 main #products .products-grid {
@@ -711,6 +725,162 @@ main .page form button {
 }
 
 
+/* INBOX PAGE */
+#inbox {
+  padding: 0;
+}
+
+.inbox-header {
+  background: var(--color-background-muted);
+  border-bottom: 1px solid var(--color-background-highlight);
+  padding: var(--padding-1);
+  
+}
+
+.inbox-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.inbox-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.conversation-list {
+  width: 280px;
+  background: var(--color-background-muted);
+  border-right: 1px solid var(--color-background-highlight);
+  overflow-y: auto;
+}
+
+.conversation {
+  padding: var(--padding-1);
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-background-highlight);
+  transition: background var(--transition-3s);
+}
+
+.conversation:hover {
+  background: var(--color-background-highlight);
+}
+
+.conversation.active {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.conversation h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.conversation p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversation.active p {
+  color: #fff;
+  opacity: 0.85;
+}
+.message-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background);
+}
+
+.messages {
+  flex: 1;
+  padding: var(--padding-1);
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background var(--transition-3s);
+}
+
+.message.received {
+  background: var(--color-background-muted);
+  color: var(--color-text);
+  border: 1px solid var(--color-background-highlight);
+  align-self: flex-start;
+}
+
+.message.sent {
+  background: var(--color-accent);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.message strong {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 3px;
+  opacity: 0.8;
+}
+
+.message-form {
+  display: flex;
+  padding: var(--padding-1);
+  background: var(--color-background-muted);
+  border-top: 1px solid var(--color-background-highlight);
+}
+
+.message-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-background-highlight);
+  background: var(--color-background);
+  color: var(--color-text);
+  outline: none;
+  font-size: 14px;
+  transition: border var(--transition-3s);
+}
+
+.message-form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.message-form input:focus {
+  border-color: var(--color-primary);
+}
+
+.message-form button {
+  margin-left: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+
+  background: var(--color-primary);
+  color: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+  transition: background var(--transition-3s);
+}
+
+.message-form button:hover {
+  background: var(--color-secondary);
+}
+
+
 /* SETTINGS PAGE */
 
 main #settings {
@@ -757,6 +927,14 @@ footer p {
 
   main #products .product-card img {
     height: 150px;
+  }
+
+  main .conversation-list {
+    width: 200px;
+  }
+
+  main .message {
+    max-width: 85%;
   }
 }
 
