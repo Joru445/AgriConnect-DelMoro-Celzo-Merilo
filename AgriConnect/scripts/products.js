@@ -65,7 +65,7 @@ function renderProducts(products, grid) {
     card.classList.add('product-card');
 
     const descHTML = product.description ? `<p>${product.description}</p>` : '';
-    const priceHTML = product.price ? `<p class="product-price">₱${product.price}</p>` : '';
+    const priceHTML = product.price ? `<p class="product-price">₱${product.price}/kg</p>` : '';
     const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
     const imgSrc = product.image && product.image.trim() !== '' ?
                   `./uploads/${product.image}` :

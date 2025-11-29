@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $checkResult = $check->get_result();
 
     if ($checkResult->num_rows > 0) {
-        echo "Email is already registered. Please login or use a different email.";
+        header("Location: ../register.html?error=email-already-exist");
         exit;
     }
 

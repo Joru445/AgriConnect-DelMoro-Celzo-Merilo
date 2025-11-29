@@ -1,5 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 const role = params.get("role") || "user";
+const error = params.get("error")
+if (error) {
+const box = document.getElementById("error-box");
+  if (error === "email-already-exist") {
+    box.textContent = "Email already exists.";
+  }
+  box.style.color = "red";
+  box.style.marginBottom = "10px";
+}
 
 document.getElementById("RegisterRole").textContent =
   role.charAt(0).toUpperCase() + role.slice(1);
