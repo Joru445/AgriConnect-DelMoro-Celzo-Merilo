@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Profile - AgriConnect</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="profile-header">
+      
+      <div class="profile-image-placeholder">
+        <i class="fas fa-user-circle"></i> 
+      </div>
+      
+      <div class="profile-info">
+        <h1>Example Farmer</h1>
+        <div class="location">🌾 AgriConnect</div>
+        <button class="edit-btn">Edit Profile</button>
+        <div class="about">
+          Third-generation farmer dedicated to sustainable and organic farming practices. 
+          We grow everything from seasonal vegetables to fresh herbs, and also raise chickens for farm-fresh eggs.
+        </div>
+
+        <div class="stats">
+          <div class="stat"><span class="label">Products</span><span class="value">24</span></div>
+          <div class="stat"><span class="label">Orders</span><span class="value">342</span></div>
+          <div class="stat"><span class="label">Farm Since</span><span class="value">1963</span></div>
+        </div>
+        
+        <div class="engagement-metrics">
+          <div class="rating">
+            <span class="star">⭐</span>
+            <span class="rating-value">4.8</span>
+            <span class="review-count">(155 Reviews)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-section">
+      <div class="section-head">
+        <h2>My Products</h2>
+        <button class="add-product">Add Product</button>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1579113800032-c38bd7635818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" 
+                  alt="Mixed Vegetables" 
+                  class="product-image">
+            <span class="status-badge">In Stock</span>
+            <button class="menu-btn" onclick="toggleMenu(this)">⋮</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item edit">Edit</button>
+              <button class="dropdown-item delete">Delete</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Mixed Seasonal Vegetables</div>
+            <div class="product-price">₱24.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1745791562822-7ac21012bbb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" 
+                  alt="Organic Tomatoes" 
+                  class="product-image">
+            <span class="status-badge">In Stock</span>
+            <button class="menu-btn" onclick="toggleMenu(this)">⋮</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item edit">Edit</button>
+              <button class="dropdown-item delete">Delete</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Organic Tomatoes (5 lbs)</div>
+            <div class="product-price">₱18.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1587486820059-4d6b5e028723?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" 
+                  alt="Farm Fresh Eggs" 
+                  class="product-image">
+            <span class="status-badge out-of-stock">Out of Stock</span>
+            <button class="menu-btn" onclick="toggleMenu(this)">⋮</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item edit">Edit</button>
+              <button class="dropdown-item delete">Delete</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Farm Fresh Eggs (Doz.)</div>
+            <div class="product-price">₱6.50</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="scripts/profile_script.js"></script>
+</body>
+</html>
