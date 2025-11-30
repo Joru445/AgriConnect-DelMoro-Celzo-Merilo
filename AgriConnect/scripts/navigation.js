@@ -1,8 +1,9 @@
 const buttons = document.querySelectorAll('.navigation button');
 const mainContainer = document.getElementById('main-content'); // AJAX injects content here
+let timeout;
 
 // Load a partial into main content
-async function loadPage(pageName) {
+async function loadPage(pageName, push = true) {
   if (!mainContainer) return;
 
   mainContainer.innerHTML = "<p class='loading-message'>Loading...</p>";
@@ -13,8 +14,8 @@ async function loadPage(pageName) {
 
     const html = await response.text();
     mainContainer.innerHTML = html;
-    console.log(html);
 
+    // Call initialization functions if they exist
     switch(pageName) {
       case "products":
         if (typeof initProductsPage === "function") initProductsPage();
@@ -27,23 +28,29 @@ async function loadPage(pageName) {
         break;
     }
 
+    // Update active button
+    buttons.forEach(b => b.classList.remove('active'));
+    const activeBtn = document.querySelector(`.navigation button[data-target="${pageName}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Update URL hash if needed
+    if(push) location.hash = pageName;
+
   } catch (err) {
     mainContainer.innerHTML = "<p class='error'>Failed to load page.</p>";
     console.error("Failed to load partial:", err);
   }
 }
 
-// Sidebar navigation buttons
+// Handle sidebar navigation buttons
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
     const targetPage = btn.dataset.target;
     if (targetPage) loadPage(targetPage);
   });
 });
 
+// Toggle sidebar expand/collapse
 document.querySelectorAll('.chevron-button').forEach(btn => {
   btn.addEventListener('click', () => {
     const container = btn.closest(".sidebar");
@@ -55,15 +62,7 @@ document.querySelectorAll('.chevron-button').forEach(btn => {
   });
 });
 
-// Dark mode toggle
-const toggleDark = document.querySelector('#dark-toggle');
-if (toggleDark) {
-  toggleDark.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
-}
-
-// Log out after 15mins of inactivity;
+// Auto logout after 15 minutes of inactivity
 function resetTimer() {
   clearTimeout(timeout);
   timeout = setTimeout(() => {
@@ -73,12 +72,21 @@ function resetTimer() {
   }, 15 * 60 * 1000); // 15 minutes
 }
 
+// Attach activity listeners
 window.onload = resetTimer;
 document.onmousemove = resetTimer;
 document.onkeypress = resetTimer;
 
+// Load page based on hash (supports refresh/bookmark)
+function handleHashChange() {
+  const page = location.hash.replace('#', '') || 'home';
+  loadPage(page, false); // false = don’t push new hash
+}
 
-// Load default page (home/hero) on first load
+// Listen for hash changes
+window.addEventListener('hashchange', handleHashChange);
+
+// Initial load
 document.addEventListener('DOMContentLoaded', () => {
-  loadPage("home");
+  handleHashChange();
 });

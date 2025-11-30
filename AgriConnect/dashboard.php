@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
@@ -43,6 +43,6 @@ if (isset($_SESSION['user_id'])) {
 
   <script src="scripts/navigation.js"></script>
   <script src="scripts/products.js"></script>
-  <script src="scripts/settings"></script>
+  <script src="scripts/settings.js"></script>
 </body>
 </html>

@@ -90,22 +90,22 @@ header.main-header p {
   color: var(--color-background);
 }
 
-header img {
+header.main-header img {
   max-height: 4rem;
 }
 
-header .navigation {
+header.main-header .navigation {
   display: flex;
   padding: var(--padding-05) 0;
   gap: 0.5rem;
 }
 
-header .navigation form {
+header.main-header .navigation form {
   display: flex;
   align-items: center;
 }
 
-header .navigation form .search {
+header.main-header .navigation form .search {
   display: flex;
   align-items: center;
   width: max-content;
@@ -117,15 +117,15 @@ header .navigation form .search {
   transition: var(--transition-3s);
 }
 
-header .navigation form .search:focus-within {
+header.main-header .navigation form .search:focus-within {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
 
-header .navigation form .search .search-icon {
+header.main-header .navigation form .search .search-icon {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
-header .navigation form .search .search-input {
+header.main-header .navigation form .search .search-input {
   flex: 1;
   font-weight: bold;
   min-width: 50px;
@@ -135,12 +135,12 @@ header .navigation form .search .search-input {
   background: transparent;
 }
 
-header .navigation form .search .search-input::placeholder,
-header .navigation form .search .search-icon {
+header.main-header .navigation form .search .search-input::placeholder,
+header.main-header .navigation form .search .search-icon {
   color: var(--color-text-highlight);
 }
 
-header .navigation button {
+header.main-header .navigation button {
   align-items: center;
   width: clamp(1.5rem, 3vw, 3rem);
   max-height: 3rem;
@@ -153,24 +153,24 @@ header .navigation button {
   transition: var(--transition-3s);
 }
 
-header .navigation button:hover {
+header.main-header .navigation button:hover {
   display: flex;
   width: 6rem;
   background: var(--color-secondary);
 }
 
-header .navigation button i {
+header.main-header .navigation button i {
   font-size: clamp(1.2rem,  2vw, 1.4rem);
   color: var(--color-background);
 }
 
-header .navigation button p {
+header.main-header .navigation button p {
   opacity: 0;
   font-size: clamp(0.8rem,  2vw, 1rem);
   color: var(--color-background);
 }
 
-header .navigation button:hover p {
+header.main-header .navigation button:hover p {
   opacity: 1;
 }
 

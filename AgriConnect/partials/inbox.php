@@ -12,7 +12,6 @@ $loggedIn = isset($_SESSION['user_id']);
 
   <div class="inbox-container">
 
-    <!-- Sidebar / Conversation List -->
     <aside class="conversation-list">
       <div class="conversation active">
         <h4>Admin</h4>
@@ -30,7 +29,6 @@ $loggedIn = isset($_SESSION['user_id']);
       </div>
     </aside>
 
-    <!-- Message Area -->
     <main class="message-area">
 
       <div class="messages">

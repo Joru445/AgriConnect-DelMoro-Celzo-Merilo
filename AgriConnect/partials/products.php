@@ -10,7 +10,7 @@ $isPartner = isset($_SESSION['role']) && $_SESSION['role'] === 'farmer';
   </header>
 
 <!-- Product Upload Form for Partners -->
-  
+
 <?php include "upload_product.php" ?>
 
 <!-- Product Categories & Grid -->

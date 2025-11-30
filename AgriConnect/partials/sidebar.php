@@ -20,11 +20,11 @@
       <button data-target="feedback" class="button">
         <i class='material-symbols-rounded'>feedback</i>
         <p>Feedback</p>
-      </button>
+      </button><!--
       <a href="#" class="button">
         <i class='material-symbols-rounded'>info</i>
         <p>About</p>
-      </a>
+      </a>-->
     </div>
   </div>
 </nav>

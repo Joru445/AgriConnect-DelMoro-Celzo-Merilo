@@ -1,0 +1,71 @@
+:root {
+  --color-primary: hsl(120, 30%, 30%);
+  --color-secondary: hsl(120, 30%, 40%);
+  --color-accent: hsl(120, 55%, 45%);
+
+  --color-background: hsl(0, 0%, 95%);
+  --color-background-muted: hsl(0, 0%, 90%);
+  --color-background-highlight: hsl(0, 0%, 85%);
+
+  --color-text: hsl(0, 0%, 0%);
+  --color-text-muted: hsl(0, 0%, 10%);
+  --color-text-highlight: hsl(0, 0%, 20%);
+
+  --transition-3s: 0.3s;
+
+  --padding-05: 0.5rem;
+  --padding-1: 1rem;
+}
+
+/* Dark Mode */
+.dark {
+  --color-background: hsl(0, 0%, 5%);
+  --color-background-muted: hsl(0, 0%, 8%);
+  --color-background-highlight: hsl(0, 0%, 10%);
+
+  --color-text: hsl(0, 0%, 95%);
+  --color-text-muted: hsl(0, 0%, 85%);
+  --color-primary: hsl(120, 30%, 25%);
+  --color-secondary: hsl(120, 30%, 35%);
+}
+
+* {
+  font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  color: var(--color-text);
+}
+
+p {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  color: var(--color-text);
+}
+
+button {
+  cursor: pointer;
+}
+
+form input,
+form textarea {
+  cursor: text;
+}
+
+.text {
+  color: var(--color-text);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background-highlight);
+}

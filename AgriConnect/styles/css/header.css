@@ -1,0 +1,107 @@
+header.main-header {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  padding: 0 var(--padding-1);
+  box-shadow: 0 0px 32px rgba(0, 0, 0, 0.4);
+  gap: 1rem;
+  z-index: 999;
+  background-color: var(--color-primary);
+}
+
+header.main-header p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-background);
+}
+
+header.main-header img {
+  max-height: 4rem;
+}
+
+header.main-header .navigation {
+  display: flex;
+  padding: var(--padding-05) 0;
+  gap: 0.5rem;
+}
+
+header.main-header .navigation form {
+  display: flex;
+  align-items: center;
+}
+
+header.main-header .navigation form .search {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  width: clamp(8rem, 1vw, 12rem);
+  padding: 0.3rem var(--padding-05);
+  border-radius: 28px;
+  gap: 0.3rem;
+  background-color: var(--color-background);
+  transition: var(--transition-3s);
+}
+
+header.main-header .navigation form .search:focus-within {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+}
+
+header.main-header .navigation form .search .search-icon {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+header.main-header .navigation form .search .search-input {
+  flex: 1;
+  font-weight: bold;
+  min-width: 50px;
+  outline: none;
+  border: none;
+  color: var(--color-text-muted);
+  background: transparent;
+}
+
+header.main-header .navigation form .search .search-input::placeholder,
+header.main-header .navigation form .search .search-icon {
+  color: var(--color-text-highlight);
+}
+
+header.main-header .navigation button {
+  align-items: center;
+  width: clamp(1.5rem, 3vw, 3rem);
+  max-height: 3rem;
+  font-weight: 600;
+  border: 0;
+  border-radius: 4px;
+  gap: 0.5rem;
+  color: var(--color-background);
+  background-color: transparent;
+  transition: var(--transition-3s);
+}
+
+header.main-header .navigation button:hover {
+  display: flex;
+  width: 6rem;
+  background: var(--color-secondary);
+}
+
+header.main-header .navigation button i {
+  font-size: clamp(1.2rem,  2vw, 1.4rem);
+  color: var(--color-background);
+}
+
+header.main-header .navigation button p {
+  opacity: 0;
+  font-size: clamp(0.8rem,  2vw, 1rem);
+  color: var(--color-background);
+}
+
+header.main-header .navigation button:hover p {
+  opacity: 1;
+}
+
+.navigation button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+
+  main .page { width: 95%; }
+
+  .conversation-list {
+    width: 200px;
+  }
+
+  .message {
+    max-width: 85%;
+  }
+}

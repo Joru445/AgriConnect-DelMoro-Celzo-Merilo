@@ -1,0 +1,124 @@
+
+.sidebar {
+  position: fixed;
+  top: 16%;
+  width: 2.6rem;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 8px 8px 0;
+  padding: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  background-color: var(--color-primary);
+  transition: var(--transition-3s);
+  z-index: 999;
+}
+
+.sidebar.expanded {
+  width: 9rem;
+}
+
+.sidebar .navigation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: transparent;
+}
+
+.sidebar .expand-navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar .expand-navigation .chevron-button {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.sidebar .expand-navigation .chevron-button:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron {
+  font-size: clamp(1.6rem,  2vw, 1.8rem);
+  font-weight: bold;
+  color: var(--color-background);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron:hover {
+  transform: scale(1.2);
+  transition: var(--transition-3s);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron.right {
+  transform: rotate(0deg);
+}
+
+.sidebar .expand-navigation .chevron-button .chevron.left {
+  transform: rotate(180deg);
+}
+
+.sidebar .navigation {
+  position: relative;
+  width: 9rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  gap: 0.5rem;
+  background-color: transparent;
+}
+
+.sidebar .navigation .button {
+  display: flex;
+  align-items: center;
+  min-width: 6rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 0 0.6rem;
+  color: var(--color-text);
+  background-color: transparent;
+  transition: var(--transition-3s);
+}
+
+.sidebar .navigation .button:hover {
+  background-color: var(--color-background);
+}
+
+.sidebar .navigation .button.active {
+  background-color: var(--color-background);
+}
+
+.sidebar .navigation .button:hover i,
+.sidebar .navigation .button:hover p {
+  color: var(--color-text-muted);
+}
+
+.sidebar .navigation .button.active i,
+.sidebar .navigation .button.active p {
+  color: var(--color-text-muted);
+}
+
+.sidebar .navigation .button i,
+.sidebar .navigation .button p {
+  color: var(--color-background);
+}
+
+.navigation .button i {
+  color: var(--color-text-muted);
+  font-size: clamp(1.6rem,  2vw, 1.8rem);
+}
+
+.navigation .button p {
+  margin: 0 1rem;
+  font-size: clamp(0.8rem,  2vw, 1rem);
+  font-weight: bold;
+}

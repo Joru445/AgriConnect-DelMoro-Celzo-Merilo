@@ -1,0 +1,30 @@
+/* FORMS */
+
+.page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page form input,
+.page form textarea,
+.page form button {
+  padding: var(--padding-05) var(--padding-1);
+  border-radius: 8px;
+  border: 1px solid grey;
+}
+
+/* BUTTONS */
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: var(--color-background-highlight);
+  border: none;
+  cursor: pointer;
+}
+
+.category-btn.active {
+  background: #4CAF50;
+  color: #fff;
+}
