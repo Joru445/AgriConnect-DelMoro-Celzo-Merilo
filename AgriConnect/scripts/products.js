@@ -63,10 +63,10 @@ function renderProducts(products, grid) {
   products.forEach(product => {
     const card = document.createElement('div');
     card.classList.add('product-card');
-
     const descHTML = product.description ? `<p>${product.description}</p>` : '';
     const priceHTML = product.price ? `<p class="product-price">₱${product.price}/kg</p>` : '';
     const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
+    const locationHTML = product.location ? `<p class="location">${product.location}</p>` : '';
     const imgSrc = product.image && product.image.trim() !== '' ?
                   `./uploads/${product.image}` :
                   `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
@@ -77,6 +77,7 @@ function renderProducts(products, grid) {
       ${descHTML}
       ${priceHTML}
       ${farmerHTML}
+      ${locationHTML}
       <div class="quantity">
         <button class="qty-btn" data-action="decrease">-</button>
         <span class="qty-value">1</span>

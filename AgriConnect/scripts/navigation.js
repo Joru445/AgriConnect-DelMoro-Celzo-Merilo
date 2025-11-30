@@ -42,6 +42,29 @@ async function loadPage(pageName, push = true) {
   }
 }
 
+async function initHeroPage() {
+  fetch("backend/get_farmers.php")
+  .then(res => res.json())
+  .then(farmers => {
+    const container = document.querySelector("#farmers-container");
+    console.log("Container: ",container);
+    container.innerHTML = "";
+    if (!farmers.length) {
+      container.innerHTML = "<p>No farmers found near your location.</p>";
+      return;
+    }
+    farmers.forEach(farmer => {
+      const div = document.createElement("div");
+      div.className = "farmer-card";
+      div.innerHTML = `
+        <h3>${farmer.username}</h3>
+        <p>${farmer.barangay}, ${farmer.city}, ${farmer.province}</p>
+      `;
+      container.appendChild(div);
+    });
+  })
+  .catch(err => console.error("Error fetching stores:", err));
+}
 // Handle sidebar navigation buttons
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {

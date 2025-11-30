@@ -39,14 +39,10 @@ if (isset($_SESSION['user_id'])) {
     </section>
 <?php else: ?>
 <!-- FEATURED SECTION-->
-    <d class="featured-section">
-    <h2>Stores near you</h2>
-    <div class="stores-near-you">
-      <div class="store-card"></div>
-      <div class="store-card"></div>
-      <div class="store-card"></div>
-    </div>
-    </d>
+    <section id="farmers-near-you" class="featured-section">
+    <h2>Farmers near you</h2>
+    <div id="farmers-container" class="farmers-near-you"></div>
+    </section>
 <?php endif; ?>
     <article id="about">
       <h1>About Us</h1>

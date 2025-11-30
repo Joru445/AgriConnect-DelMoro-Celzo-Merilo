@@ -44,5 +44,6 @@ if (isset($_SESSION['user_id'])) {
   <script src="scripts/navigation.js"></script>
   <script src="scripts/products.js"></script>
   <script src="scripts/settings.js"></script>
+  <script src="scripts/messages_handler.js"></script>
 </body>
 </html>

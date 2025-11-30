@@ -6,7 +6,8 @@ header('Content-Type: application/json');
 $sql = "
     SELECT
         p.*,
-        u.username AS farmer_name
+        u.username AS farmer_name,
+        CONCAT(u.barangay, ', ', u.city, ', ', u.province) AS location
     FROM products p
     JOIN users u ON p.farmer_id = u.id
 ";

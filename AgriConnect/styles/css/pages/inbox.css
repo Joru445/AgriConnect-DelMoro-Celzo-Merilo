@@ -1,76 +1,104 @@
-
 #inbox {
   padding: 0;
 }
 
-.inbox-header {
+
+#inbox .inbox-header {
+  padding: var(--padding-1);
+
   background: var(--color-background-muted);
   border-bottom: 1px solid var(--color-background-highlight);
-  padding: var(--padding-1);
-  
 }
 
-.inbox-header h1 {
+#inbox .inbox-header h1 {
   margin: 0;
+
   font-size: 22px;
 }
 
-.inbox-container {
+
+#inbox .inbox-container {
   flex: 1;
+  height: 100%;
+
   display: flex;
   overflow: hidden;
 }
 
-.conversation-list {
+
+#inbox .conversation-list {
   width: 280px;
+
   background: var(--color-background-muted);
   border-right: 1px solid var(--color-background-highlight);
+
   overflow-y: auto;
 }
 
-.conversation {
+
+#inbox .conversation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
   padding: var(--padding-1);
   cursor: pointer;
+
   border-bottom: 1px solid var(--color-background-highlight);
   transition: background var(--transition-3s);
 }
 
-.conversation:hover {
+
+#inbox .conversation:hover {
   background: var(--color-background-highlight);
 }
 
-.conversation.active {
+#inbox .conversation.active {
   background: var(--color-secondary);
   color: #fff;
 }
 
-.conversation h4 {
+
+#inbox .conversation h4 {
   margin: 0;
   font-size: 14px;
 }
 
-.conversation p {
+
+#inbox .conversation p {
   margin: 4px 0 0;
+
   font-size: 12px;
   color: var(--color-text-muted);
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.conversation.active p {
+#inbox .conversation.active p {
   color: #fff;
   opacity: 0.85;
 }
-.message-area {
+
+
+#inbox .message-area {
   flex: 1;
+
   display: flex;
   flex-direction: column;
+
+  height: 80vh;
+
   background: var(--color-background);
 }
 
-.messages {
+
+#inbox .messages {
   flex: 1;
+
   padding: var(--padding-1);
   overflow-y: auto;
 
@@ -79,65 +107,85 @@
   gap: 10px;
 }
 
-.message {
+
+#inbox .message {
   max-width: 70%;
-  padding: 10px 14px;
+
+  padding: 0.5rem 1rem;
   border-radius: 12px;
-  font-size: 14px;
+
+  font-size: 1rem;
   line-height: 1.4;
+
   transition: background var(--transition-3s);
 }
 
-.message.received {
+
+#inbox .message.received {
+  align-self: flex-start;
+
   background: var(--color-background-muted);
   color: var(--color-text);
+
   border: 1px solid var(--color-background-highlight);
-  align-self: flex-start;
 }
 
-.message.sent {
+#inbox .message.sent {
+  align-self: flex-end;
+
   background: var(--color-accent);
   color: #fff;
-  align-self: flex-end;
 }
 
-.message strong {
+
+#inbox .message strong {
   display: block;
-  font-size: 11px;
   margin-bottom: 3px;
+
+  font-size: 11px;
   opacity: 0.8;
 }
 
-.message-form {
-  display: flex;
+
+#inbox .message-form {
   padding: var(--padding-1);
+
+  display: flex;
+
   background: var(--color-background-muted);
   border-top: 1px solid var(--color-background-highlight);
 }
 
-.message-form input {
+
+#inbox .message-form input {
   flex: 1;
+
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid var(--color-background-highlight);
+
   background: var(--color-background);
   color: var(--color-text);
+
+  border: 1px solid var(--color-background-highlight);
   outline: none;
+
   font-size: 14px;
+
   transition: border var(--transition-3s);
 }
 
-.message-form input::placeholder {
+#inbox .message-form input::placeholder {
   color: var(--color-text-muted);
 }
 
-.message-form input:focus {
+#inbox .message-form input:focus {
   border-color: var(--color-primary);
 }
 
-.message-form button {
+#inbox .message-form button {
   margin-left: 10px;
   padding: 10px 18px;
+
   border: none;
   border-radius: 8px;
 
@@ -146,9 +194,20 @@
 
   font-size: 14px;
   cursor: pointer;
+
   transition: background var(--transition-3s);
 }
 
-.message-form button:hover {
+#inbox .message-form button:hover {
   background: var(--color-secondary);
+}
+
+#inbox .no-conversations,
+#inbox .no-messages {
+  padding: var(--padding-1);
+
+  font-size: 14px;
+  color: var(--color-text-muted);
+
+  text-align: center;
 }
