@@ -1,0 +1,98 @@
+:root {
+  --pastel-green: #e9f7ef; 
+  --card-background: #ffffff; 
+  --primary-accent: #6aa84f; 
+  --secondary-color: #6c757d;
+  --border-color: #c8e6c9; 
+  --success-color: #4CAF50; 
+  --text-color: #34495e; 
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-family);
+  background-color: var(--pastel-green);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+/* Upload Section - Soft Card */
+.upload-section {
+  background-color: var(--card-background);
+  padding: 40px;
+  border-radius: 16px; 
+  box-shadow: 0 8px 20px rgba(171, 203, 172, 0.4); 
+  border: 1px solid var(--border-color); 
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 50px;
+}
+
+/* Headings */
+.upload-section h2 {
+  color: var(--primary-accent);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form and Input Styling */
+.upload-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.upload-section input[type="text"],
+.upload-section input[type="number"],
+.upload-section input[type="file"],
+.upload-section select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: #fcfcfc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.upload-section input:focus,
+.upload-section select:focus {
+  border-color: var(--primary-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(106, 168, 79, 0.2);
+}
+
+/* Placeholder text */
+.upload-section input::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.8;
+}
+
+/* Button Styling */
+.upload-section button[type="submit"] {
+  background-color: var(--success-color);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.upload-section button[type="submit"]:hover {
+  background-color: #388e3c;
+}
