@@ -1,0 +1,137 @@
+#feedback {
+  display: flex;
+  flex-direction: column;
+}
+
+#feedback .hero {
+  padding: 1rem;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--color-dark);
+}
+
+#feedback .hero h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight:700;
+  color: var(--color-background);
+}
+
+#feedback .hero p.lead {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+  color: var(--color-background-muted);
+}
+
+#feedback .logo-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #ffffff30;
+}
+
+#feedback .logo-img img {
+  width: 80%;
+  height: auto;
+}
+
+
+/* Form Styling */
+#feedback form {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
+}
+
+#feedback form label {
+  font-size:14px;
+  color:var(--color-text-muted);
+  margin-bottom:6px;
+  font-weight:600;
+}
+
+#feedback form input[type="text"], input[type="email"], textarea, select {
+  width: 95%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--color-background);
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+#feedback form select {
+  width: 98.5%;
+}
+
+#feedback form input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #4caf5025;
+}
+
+#feedback form textarea{
+  min-height: 120px;
+  resize: vertical;
+}
+
+#feedback form .row {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+#feedback form .row .col{
+  flex: 1;
+  max-width: 100%;
+}
+
+/* Rating Buttons */
+#feedback form .rating{
+  display: flex;
+  gap: 8px;
+}
+#feedback form .rating button{
+  background: transparent;
+  border:1px solid var(--color-primary);
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.2s;
+  font-weight:600;
+}
+#feedback form .rating button:hover{
+  background:var(--color-accent);
+  color: var(--color-background);
+  border-color:var(--color-accent);
+}
+#feedback form .rating button.active{
+  background:var(--color-accent);
+  color: var(--color-background);
+  border-color: transparent;
+}
+
+#feedback form .btn{
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+#feedback form .btn.primary{
+  background:var(--color-primary);
+  color:white;
+  box-shadow:0 8px 24px rgba(76,175,80,0.25);
+}
+
+#feedback form .btn.primary:hover {opacity:0.85; transform:scale(1.02);}

@@ -2,6 +2,7 @@
   --color-primary: hsl(120, 30%, 30%);
   --color-secondary: hsl(120, 30%, 40%);
   --color-accent: hsl(120, 55%, 45%);
+  --color-dark: #143615;
 
   --color-background: hsl(0, 0%, 95%);
   --color-background-muted: hsl(0, 0%, 90%);

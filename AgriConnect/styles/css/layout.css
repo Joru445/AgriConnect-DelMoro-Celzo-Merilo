@@ -109,7 +109,7 @@ main .page form button {
 footer {
   display: flex;
   justify-content: center;
-  padding: var(--padding-1);
+  padding: 0;
   background-color: var(--color-background-muted);
 }
 
