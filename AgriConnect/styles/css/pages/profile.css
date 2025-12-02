@@ -1,36 +1,10 @@
-:root {
-    --primary-green: #10b981;
-    --primary-green-dark: #065f46;
-    --text-color-primary: #1f2937;
-    --text-color-secondary: #4b5563;
-    --background-color: #f7f9fc;
-    --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
+#profile {
+    min-width: 60%;
+    padding: 1rem;
+    background-color: var(--color-background-muted);
 }
 
-/* Reset & Body */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; 
-    color: var(--text-color-primary);
-    line-height: 1.6;
-    min-height: 100vh;
-}
-
-/* Container */
-.wrap {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/*PROFILE HEADER STYLES*/
-
-.profile-header {
+#profile .profile-header {
     display: flex;
     gap: 25px;
     background: #fff;
@@ -40,8 +14,7 @@ body {
     margin-bottom: 40px;
 }
 
-/*Profile Image Placeholder*/
-.profile-image-placeholder {
+#profile .profile-image-placeholder {
     width: 110px; 
     height: 110px; 
     border-radius: 50%;
@@ -54,11 +27,11 @@ body {
     color: #8c98a3;
 }
 
-.profile-image-placeholder i {
+#profile .profile-image-placeholder i {
     font-size: 60px;
 }
 
-.profile-image { 
+#profile .profile-image { 
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -67,34 +40,22 @@ body {
     flex-shrink: 0;
 } 
 
-.profile-info {
+#profile .profile-info {
     flex: 1;
 }
 
-.profile-info h1 {
+#profile .profile-info h1 {
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 5px;
     color: #111827;
 }
 
-.location {
+#profile .location {
     font-size: 14px;
     color: var(--primary-green-dark);
     font-weight: 600;
     margin-bottom: 12px;
-}
-
-.edit-btn {
-    font-size: 14px;
-    padding: 8px 16px;
-    background: var(--primary-green);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .edit-btn:hover {
@@ -183,67 +144,43 @@ body {
     font-weight: 700;
 }
 
-.add-product {
-    font-size: 14px;
-    padding: 8px 16px;
-    background: #fff;
-    color: var(--primary-green);
-    border: 1px solid var(--primary-green);
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s, color 0.3s;
-}
-
-.add-product:hover {
-    background: var(--primary-green);
-    color: white;
-}
-
 /* Product Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
+#profile .products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 50vh;
+  margin-top: 1rem;
+  gap: 1.5rem;
 }
 
 /* Product Card*/
-.product-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    font-size: 14px;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+#profile .product-card {
+  flex: 1 1 200px;
+  background-color: var(--color-background);
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
-.product-card:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-    cursor: pointer;
+#profile .product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
 }
 
-.img-wrap {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    overflow: hidden;
-}
-
-/* Image Zoom*/
-.product-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease-out;
-}
-
-.product-card:hover .product-image {
-    transform: scale(1.05); 
+#profile .product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #81c784;
 }
 
 .status-badge {

@@ -9,20 +9,6 @@
   --font-family: 'Poppins', sans-serif;
 }
 
-/* Global Styles */
-body {
-  font-family: var(--font-family);
-  background-color: var(--pastel-green);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding-top: 50px;
-}
-
 /* Upload Section - Soft Card */
 .upload-section {
   background-color: var(--card-background);

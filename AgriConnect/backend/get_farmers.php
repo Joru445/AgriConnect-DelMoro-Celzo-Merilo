@@ -14,14 +14,14 @@ $city = $_SESSION["city"];
 $barangay = $_SESSION["barangay"];
 
 $stmt = $connect->prepare("
-    SELECT username, role, province, city, barangay
+    SELECT id, username, role, province, city, barangay
     FROM users
-    WHERE role = 'farmer' AND province = ? AND city = ? AND barangay = ?
+    WHERE id != ? AND role = 'farmer' AND province = ? AND city = ?
     ORDER BY username ASC
-    LIMIT 3
+    LIMIT 15
 ");
 
-$stmt->bind_param("sss", $province, $city, $barangay);
+$stmt->bind_param("iss", $user_id, $province, $city);
 $stmt->execute();
 $result = $stmt->get_result();
 

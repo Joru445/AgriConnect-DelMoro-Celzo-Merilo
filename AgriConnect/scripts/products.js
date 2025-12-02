@@ -83,13 +83,50 @@ function renderProducts(products, grid) {
         <span class="qty-value">1</span>
         <button class="qty-btn" data-action="increase">+</button>
       </div>
-      <button class="add-to-cart">🛒 Add to Cart</button>
+      <button
+      class="add-to-cart message-farmer-btn"
+      data-farmer-id="${product.farmer_id}"
+      data-product-name="${product.name}">Ask farmer</button>
     `;
 
     grid.appendChild(card);
     setupQuantityControls(card, product.quantity || 1);
   });
 }
+
+document.addEventListener("click", e => {
+
+  const btn = e.target.closest(".message-farmer-btn");
+  if(!btn) return;
+
+  const receiverId = btn.dataset.farmerId;
+  const productName = btn.dataset.productName;
+
+  if(!receiverId || !productName) return;
+
+  const formData = new FormData();
+  formData.append("receiver_id", receiverId);
+  formData.append("message", `Hi! I'm interested in your product: ${productName}`);
+
+  fetch("backend/send_message.php", {
+    method: "POST",
+    body: formData,
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.success) {
+      alert("Message sent successfully!");
+    } else {
+      alert("Failed to send message: " + (data.error || "Unknown error"));
+    }
+  })
+  .catch(err => {
+    console.error("Error sending message:", err);
+    alert("Error sending message.");
+  });
+
+});
+
 
 // Quantity controls
 function setupQuantityControls(card, maxQty) {

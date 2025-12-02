@@ -11,23 +11,33 @@ $user = $loggedIn ? [
 ] : null;
 ?>
 
-<section class="page" id="settings">
+<section class="page" id="profile">
   <h1>Settings</h1>
   <?php if ($loggedIn): ?>
-    <div class="settings-container">
-      <h2>Your Profile</h2>
-      <p><strong>Username:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
-      <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-      <p><strong>Account type:</strong> <?php echo htmlspecialchars($user['role']); ?></p>
-      <p><strong>Province:</strong> <?php echo $user['province'] ?: 'Not Set'; ?></p>
-      <p><strong>City:</strong> <?php echo $user['city'] ?: 'Not Set'; ?></p>
-      <p><strong>Barangay:</strong> <?php echo $user['barangay'] ?: 'Not Set'; ?></p>
-      <h2>Other Settings</h2>
-      <button id="dark-toggle">Light/Dark Mode Toggle</button>
-      <form action="backend/logout.php" method="post" style="margin-top: 20px;">
+    
+    <h2>Your Profile</h2>
+    <div class="profile-header">
+    
+    <div class="profile-image-placeholder">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <div class="profile-info">
+      <p><strong>Username: </strong><?php echo htmlspecialchars($user['username']); ?></p>
+      <p><strong>Email: </strong><?php echo htmlspecialchars($user['email']); ?></p>
+      <p><strong>User type: </strong><?php echo htmlspecialchars($user['role']); ?></p>
+    </div>
+    </div>
+    <div class="profile-info">
+      <h3>Address</h3>
+      <p><strong>Province: </strong><?php echo $user['province'] ?: 'Not Set'; ?></p>
+      <p><strong>City: </strong><?php echo $user['city'] ?: 'Not Set'; ?></p>
+      <p><strong>Barangay: </strong><?php echo $user['barangay'] ?: 'Not Set'; ?></p>
+    </div>
+    <h2>Other Settings</h2>
+    <button id="dark-toggle">Light/Dark Mode Toggle</button>
+    <form action="backend/logout.php" method="post" style="margin-top: 20px;">
         <button type="submit">Log Out</button>
       </form>
-    </div>
   <?php else: ?>
     <p>Please log in first. <a href="login.html">Go to Login</a></p>
   <?php endif; ?>

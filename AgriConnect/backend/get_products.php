@@ -7,6 +7,7 @@ $sql = "
     SELECT
         p.*,
         u.username AS farmer_name,
+        u.id AS farmer_id,
         CONCAT(u.barangay, ', ', u.city, ', ', u.province) AS location
     FROM products p
     JOIN users u ON p.farmer_id = u.id
