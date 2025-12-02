@@ -72,7 +72,7 @@ function renderProducts(products, grid) {
                   `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
 
     card.innerHTML = `
-      <img src="${imgSrc}" alt="${product.name}">
+      <img srcset="${imgSrc}" loading="lazy" alt="${product.name}">
       <h3>${product.name}</h3>
       ${descHTML}
       ${priceHTML}
