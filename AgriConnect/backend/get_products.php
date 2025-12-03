@@ -3,7 +3,10 @@ include 'db_connect.php';
 
 header('Content-Type: application/json');
 
-$sql = "
+$limit = 10;
+$offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
+
+$stmt = $connect->prepare("
     SELECT
         p.*,
         u.username AS farmer_name,
@@ -11,17 +14,15 @@ $sql = "
         CONCAT(u.barangay, ', ', u.city, ', ', u.province) AS location
     FROM products p
     JOIN users u ON p.farmer_id = u.id
-";
+    ORDER BY u.id
+    DESC
+    LIMIT ?, ?
+");
 
-$result = $connect->query($sql);
+$stmt->bind_param("ii", $offset, $limit);
+$stmt->execute();
 
-$products = [];
+$result = $stmt->get_result();
 
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $products[] = $row;
-    }
-}
-
-echo json_encode($products);
+echo json_encode($result->fetch_all(MYSQLI_ASSOC));
 ?>

@@ -1,17 +1,31 @@
-let productsLoaded = false;
-let cachedProducts = [];
+let offset = 0;
+let loading = false;
+let observer = null;
+let allLoadedProducts = [];
+let activeCategory = 'all';
 
 function initProductsPage() {
   showSkeleton(5);
-  loadProducts();
+  setupObserver();
   setupCategoryButtons();
+  loadProducts();
 }
 
-// Show skeletons while loading
+function setupObserver() {
+  let sentinel = document.getElementById("scrollEnd");
+
+  observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      loadProducts();
+    }
+  }, { rootMargin: '300px' }); // load early, 300px before reaching the sentinel
+
+  observer.observe(sentinel);
+}
+
 function showSkeleton(count = 6) {
   const container = document.querySelector('.products-grid');
   if (!container) return;
-  container.innerHTML = '';
 
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < count; i++) {
@@ -27,52 +41,70 @@ function showSkeleton(count = 6) {
   container.appendChild(fragment);
 }
 
-// Load products from backend
 async function loadProducts() {
+  if (loading) return;
+  loading = true;
+
   const grid = document.querySelector('.products-grid');
   if (!grid) return;
 
-  if (productsLoaded) {
-    renderProducts(cachedProducts, grid);
-    return;
-  }
-
-  showSkeleton(5);
+  showSkeleton(3);
 
   try {
-    const response = await fetch('backend/get_products.php');
+    const response = await fetch(`backend/get_products.php?offset=${offset}`);
     const products = await response.json();
-    cachedProducts = products;
-    productsLoaded = true;
-    renderProducts(products, grid);
+
+    if (products.length === 0) {
+      if (observer) observer.disconnect();
+      loading = false;
+      return;
+    }
+
+    offset += products.length;
+    allLoadedProducts.push(...products);
+
+    renderProductsFromAllLoaded(grid);
+
   } catch (err) {
     console.error('Failed to load products:', err);
-    grid.innerHTML = '<p class="error">Failed to load products.</p>';
   }
+
+  loading = false;
 }
 
-// Render product cards
-function renderProducts(products, grid) {
-  grid.innerHTML = '';
+function renderProductsFromAllLoaded(grid) {
+  const filtered = activeCategory === 'all'
+    ? allLoadedProducts
+    : allLoadedProducts.filter(p => p.category === activeCategory);
 
-  if (!products || products.length === 0) {
-    grid.innerHTML = '<p class="placeholder">Products will appear here...</p>';
-    return;
+  renderProducts(filtered, grid, true); // rebuild the grid for filtering
+}
+
+function renderProducts(products, grid, clear = false) {
+  if (clear) {
+    grid.innerHTML = '';
+  } else {
+    const skeletons = grid.querySelectorAll('.skeleton-card');
+    skeletons.forEach(skel => skel.remove());
   }
 
   products.forEach(product => {
+    if (grid.querySelector(`.product-card[data-id='${product.id}']`)) return;
+    
     const card = document.createElement('div');
     card.classList.add('product-card');
+    card.dataset.category = product.category;
+
     const descHTML = product.description ? `<p>${product.description}</p>` : '';
     const priceHTML = product.price ? `<p class="product-price">₱${product.price}/kg</p>` : '';
     const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
     const locationHTML = product.location ? `<p class="location">${product.location}</p>` : '';
-    const imgSrc = product.image && product.image.trim() !== '' ?
-                  `./uploads/${product.image}` :
-                  `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
+    const imgSrc = product.image && product.image.trim() !== '' 
+      ? `./uploads/${product.image}` 
+      : `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
 
     card.innerHTML = `
-      <img srcset="${imgSrc}" loading="lazy" alt="${product.name}">
+      <img src="${imgSrc}" loading="lazy" alt="${product.name}">
       <h3>${product.name}</h3>
       ${descHTML}
       ${priceHTML}
@@ -84,9 +116,12 @@ function renderProducts(products, grid) {
         <button class="qty-btn" data-action="increase">+</button>
       </div>
       <button
-      class="add-to-cart message-farmer-btn"
-      data-farmer-id="${product.farmer_id}"
-      data-product-name="${product.name}">Ask farmer</button>
+        type="button"
+        class="add-to-cart message-farmer-btn"
+        data-farmer-id="${product.farmer_id}"
+        data-product-name="${product.name}">
+        Ask farmer
+      </button>
     `;
 
     grid.appendChild(card);
@@ -95,14 +130,13 @@ function renderProducts(products, grid) {
 }
 
 document.addEventListener("click", e => {
-
   const btn = e.target.closest(".message-farmer-btn");
-  if(!btn) return;
+  if (!btn) return;
 
+  e.preventDefault();
   const receiverId = btn.dataset.farmerId;
   const productName = btn.dataset.productName;
-
-  if(!receiverId || !productName) return;
+  if (!receiverId || !productName) return;
 
   const formData = new FormData();
   formData.append("receiver_id", receiverId);
@@ -114,7 +148,7 @@ document.addEventListener("click", e => {
   })
   .then(res => res.json())
   .then(data => {
-    if(data.success) {
+    if (data.success) {
       alert("Message sent successfully!");
     } else {
       alert("Failed to send message: " + (data.error || "Unknown error"));
@@ -124,11 +158,8 @@ document.addEventListener("click", e => {
     console.error("Error sending message:", err);
     alert("Error sending message.");
   });
-
 });
 
-
-// Quantity controls
 function setupQuantityControls(card, maxQty) {
   const qtyValue = card.querySelector('.qty-value');
   const decreaseBtn = card.querySelector('button[data-action="decrease"]');
@@ -141,6 +172,7 @@ function setupQuantityControls(card, maxQty) {
       qtyValue.textContent = currentQty;
     }
   });
+
   increaseBtn.addEventListener('click', () => {
     if (currentQty < maxQty) {
       currentQty++;
@@ -149,22 +181,13 @@ function setupQuantityControls(card, maxQty) {
   });
 }
 
-// Category filter buttons
 function setupCategoryButtons() {
   document.querySelectorAll('.category-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const category = btn.getAttribute('data-category');
-      filterProducts(category);
+      activeCategory = btn.getAttribute('data-category');
+      renderProductsFromAllLoaded(document.querySelector('.products-grid'));
     });
   });
-}
-
-function filterProducts(category) {
-  const grid = document.querySelector('.products-grid');
-  if (!grid || !productsLoaded) return;
-
-  const filtered = category === 'all' ? cachedProducts : cachedProducts.filter(p => p.category === category);
-  renderProducts(filtered, grid);
 }
