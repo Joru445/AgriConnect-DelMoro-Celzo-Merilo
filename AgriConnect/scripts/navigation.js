@@ -119,7 +119,7 @@ document.addEventListener("click", e => {
    FETCH PROFILE + PRODUCTS
 ================================ */
 
-function loadProfile(farmerId) {
+async function loadProfile(farmerId) {
 
   fetch(`backend/get_profile.php?id=${farmerId}`)
     .then(res => res.json())
@@ -163,17 +163,17 @@ function loadProfile(farmerId) {
                   `./uploads/${p.image}` :
                   `./assets/placeholder/${p.category || 'placeholder'}.jpg`;
         grid.innerHTML += `
-  <div class="product-card">
-    <img src="${img}" alt="${p.name}">
-    <h3>${p.name}</h3>
-    <p class="price">₱${p.price}</p>
-    <button class="message-farmer-btn"
-            data-farmer-id="${data.farmer.id}"
-            data-product-name="${p.name}">
-      Message Farmer
-    </button>
-  </div>
-`;
+          <div class="product-card">
+            <img srcset="${img}" loading="lazy" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p class="price">₱${p.price}</p>
+            <button class="message-farmer-btn"
+              data-farmer-id="${data.farmer.id}"
+              data-product-name="${p.name}">
+              Message Farmer
+            </button>
+          </div>
+        `;
 
       });
 
