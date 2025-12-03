@@ -8,6 +8,7 @@ $user = $loggedIn ? [
     'province' => $_SESSION['province'] ?? '',
     'city' => $_SESSION['city'] ?? '',
     'barangay' => $_SESSION['barangay'] ?? '',
+    'profile_pic' => $_SESSION['profile_pic'] ?? '',
 ] : null;
 ?>
 
@@ -19,10 +20,14 @@ $user = $loggedIn ? [
     <div class="profile-header">
     
     <div class="profile-image-placeholder">
-      <i class="fas fa-user-circle"></i>
+      <img src="<?php 
+        echo !empty($user['profile_pic']) 
+        ? './uploads/profiles/' . htmlspecialchars($user['profile_pic'] . '.jpg')
+        : './assets/placeholder/profiles/profile_pic.jpg';
+        ?>" loading="lazy" alt="<?php echo htmlspecialchars($user['username']); ?>">
     </div>
     <div class="profile-info">
-      <p><strong>Username: </strong><?php echo htmlspecialchars($user['username']); ?></p>
+      <p><strong>Username: </strong><?php echo htmlspecialchars($user['profile_pic']); ?></p>
       <p><strong>Email: </strong><?php echo htmlspecialchars($user['email']); ?></p>
       <p><strong>User type: </strong><?php echo htmlspecialchars($user['role']); ?></p>
     </div>

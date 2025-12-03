@@ -1,63 +1,40 @@
 <?php
 include 'db_connect.php';
-
 header('Content-Type: application/json');
 
 $farmer_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 8;
+$offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
 
-$stmt = $connect->prepare("
-    SELECT
-        users.id AS farmer_id,
-        users.username,
-        users.email,
-        users.barangay,
-        users.city,
-        users.province,
-        CONCAT(users.barangay, ', ', users.city, ', ', users.province) AS location,
-
-        products.id AS product_id,
-        products.name,
-        products.price,
-        products.quantity,
-        products.image
+// Fetch farmer info
+$stmtFarmer = $connect->prepare("
+    SELECT id, username, email, barangay, city, province, about, profile_pic,
+        CONCAT(barangay, ', ', city, ', ', province) AS location
     FROM users
-    LEFT JOIN products ON products.farmer_id = users.id
-    WHERE users.id = ?
+    WHERE id = ?
 ");
+$stmtFarmer->bind_param("i", $farmer_id);
+$stmtFarmer->execute();
+$resultFarmer = $stmtFarmer->get_result();
+$farmer = $resultFarmer->fetch_assoc();
 
-$stmt->bind_param("i", $farmer_id);
-$stmt->execute();
-$result = $stmt->get_result();
+// Fetch farmer's products with limit & offset
+$stmtProducts = $connect->prepare("
+    SELECT id, name, price, category, quantity, image
+    FROM products
+    WHERE farmer_id = ?
+    ORDER BY id DESC
+    LIMIT ? OFFSET ?
+");
+$stmtProducts->bind_param("iii", $farmer_id, $limit, $offset);
+$stmtProducts->execute();
+$resultProducts = $stmtProducts->get_result();
+$products = $resultProducts->fetch_all(MYSQLI_ASSOC);
 
-$profile = [
-    "farmer" => null,
-    "products" => []
+$response = [
+    "farmer" => $farmer ?: null,
+    "products" => $products
 ];
 
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-
-        // assign farmer only once
-        if ($profile["farmer"] === null) {
-            $profile["farmer"] = [
-                "id"       => $row["farmer_id"],
-                "name"     => $row["username"], // ✅ fixed
-                "email"    => $row["email"],
-                "location" => $row["location"]
-            ];
-        }
-
-        // collect products
-        if (!empty($row["product_id"])) {
-            $profile["products"][] = [
-                "id"       => $row["product_id"],
-                "name"     => $row["name"], // ✅ fixed
-                "price"    => $row["price"],
-                "quantity" => $row["quantity"],
-                "image"    => $row["image"]
-            ];
-        }
-    }
-}
-
-echo json_encode($profile);
+echo json_encode($response);
+?>

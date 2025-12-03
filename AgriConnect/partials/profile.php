@@ -2,7 +2,7 @@
   <h2>Profile</h2>
   <div class="profile-header">
     <div class="profile-image-placeholder">
-      <i class="fas fa-user-circle"></i>
+      
     </div>
     <div class="profile-info">
     </div>
@@ -11,4 +11,6 @@
     <h2>My Products</h2>
     <div class="products-grid"></div>
   </div>
+  
+  <div id="profileScrollEnd"><p>Loading...</p></div>
 </section>

@@ -1,6 +1,11 @@
 <?php if ($isPartner): ?>
 <section class="upload-section">
-  <h2>Upload a Product</h2>
+  <div class="upload-header">
+    <h2>Upload a Product</h2>
+    <button class="upload-button">
+      <i class="chevron material-symbols-rounded close">chevron_right</i>
+    </button>
+  </div>
   <form action="backend/upload_product.php" method="post" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Product Name" required>
     <select name="category" required>

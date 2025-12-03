@@ -40,8 +40,10 @@ if (isset($_SESSION['user_id'])) {
 <?php else: ?>
 <!-- FEATURED SECTION-->
     <section id="farmers-near-you" class="featured-section">
-    <h2>Farmers near you</h2>
-    <div id="farmers-container" class="farmers-near-you"></div>
+      <h2>Farmers near you</h2>
+      <div id="farmers-container" class="farmers-near-you">
+        
+      </div>
     </section>
 <?php endif; ?>
     <article id="about">

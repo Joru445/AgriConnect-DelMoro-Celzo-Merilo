@@ -14,7 +14,7 @@ $city = $_SESSION["city"];
 $barangay = $_SESSION["barangay"];
 
 $stmt = $connect->prepare("
-    SELECT id, username, role, province, city, barangay
+    SELECT id, username, role, province, city, barangay, profile_pic
     FROM users
     WHERE id != ? AND role = 'farmer' AND province = ? AND city = ?
     ORDER BY username ASC

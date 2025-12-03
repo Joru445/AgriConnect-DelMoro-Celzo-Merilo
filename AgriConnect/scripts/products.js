@@ -9,6 +9,7 @@ function initProductsPage() {
   setupObserver();
   setupCategoryButtons();
   loadProducts();
+  initUploadButton();
 }
 
 function setupObserver() {
@@ -189,5 +190,20 @@ function setupCategoryButtons() {
       activeCategory = btn.getAttribute('data-category');
       renderProductsFromAllLoaded(document.querySelector('.products-grid'));
     });
+  });
+}
+
+function initUploadButton() {
+  const btn = document.querySelector('.upload-button');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const container = btn.closest('.upload-section');
+    container.classList.toggle('expanded');
+    const icon = btn.querySelector('.chevron');
+    if (icon) {
+      icon.classList.toggle('close');
+      icon.classList.toggle('open');
+    }
   });
 }
