@@ -119,7 +119,7 @@ function resetTimer() {
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     fetch("backend/logout.php").then(() => {
-      window.location.href = "login.php";
+      window.location.href = "login.html";
     });
   }, 15 * 60 * 1000);
 }

@@ -70,7 +70,7 @@ main #products .category-btn {
 }
 
 main #products .category-btn:hover {
-  background-color: #ccc;
+  background-color: #1b5e20;
 }
 
 main #products .category-btn.active {
@@ -94,7 +94,6 @@ main #products .products-grid {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  max-width: 1000px;
   min-height: 50vh;
   margin-top: 1rem;
   gap: 1.5rem;

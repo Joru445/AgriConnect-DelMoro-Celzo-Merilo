@@ -4,6 +4,7 @@ include "../backend/db_connect.php";
 
 $loggedIn = false;
 $user = null;
+$isAdmin = false;
 
 if (isset($_SESSION['user_id'])) {
     $loggedIn = true;
@@ -14,8 +15,13 @@ if (isset($_SESSION['user_id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+
+    if ($user && $user['role'] === 'admin') {
+        $isAdmin = true;
+    }
 }
 ?>
+
 
 <section id="home" class="page">
   <header class="home-header" style="background-image: url('https://i.pinimg.com/1200x/10/c2/6c/10c26c307302dd487a3fe8b8653da27e.jpg');">
@@ -38,6 +44,12 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </section>
 <?php else: ?>
+  <?php if (!$isAdmin): ?>
+    <section id="farmers-near-you" class="featured-section">
+      <h2>Admin Panel</h2>
+      <p>Hello pi</p>
+    </section>
+  <?php else: ?>
 <!-- FEATURED SECTION-->
     <section id="farmers-near-you" class="featured-section">
       <h2>Farmers near you</h2>
@@ -45,6 +57,7 @@ if (isset($_SESSION['user_id'])) {
         
       </div>
     </section>
+  <?php endif; ?>
 <?php endif; ?>
     <article id="about">
       <h1>About Us</h1>

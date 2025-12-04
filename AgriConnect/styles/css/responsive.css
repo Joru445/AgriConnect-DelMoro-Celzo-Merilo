@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
   main .page { width: 100%; }
 
@@ -14,18 +18,19 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 1rem;
+    margin: 1rem;
   }
 
-  .profile-info h1 { font-size: 20px; }
+  .profile-info h1 { font-size: 1rem; }
   
   .profile-image-placeholder {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   .stats {
     justify-content: center;
-    gap: 10px;
+    gap: 0.5rem;
   }
 
   .engagement-metrics {

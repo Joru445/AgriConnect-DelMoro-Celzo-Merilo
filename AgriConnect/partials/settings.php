@@ -25,7 +25,7 @@ $user = $loggedIn ? [
           ?>" loading="lazy" alt="<?php echo htmlspecialchars($user['username']); ?>">
       </div>
       <div class="profile-info">
-        <p><strong>Username: </strong><?php echo htmlspecialchars($user['profile_pic']); ?></p>
+        <p><strong>Username: </strong><?php echo htmlspecialchars($user['username']); ?></p>
         <p><strong>Email: </strong><?php echo htmlspecialchars($user['email']); ?></p>
         <p><strong>User type: </strong><?php echo htmlspecialchars($user['role']); ?></p>
       </div>
