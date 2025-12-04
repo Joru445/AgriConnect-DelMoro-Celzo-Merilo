@@ -8,8 +8,8 @@ function initProductsPage() {
   showSkeleton(5);
   setupObserver();
   setupCategoryButtons();
-  loadProducts();
   initUploadButton();
+  loadProducts();
 }
 
 function setupObserver() {
@@ -132,7 +132,6 @@ function renderProducts(products, grid, clear = false) {
 
 document.addEventListener("click", e => {
   const btn = e.target.closest(".message-farmer-btn");
-  console.log(btn);
   if (!btn) return;
 
   e.preventDefault();

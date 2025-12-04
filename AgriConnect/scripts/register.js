@@ -28,7 +28,6 @@ loginForm.addEventListener('submit', async function(e) {
 
     const data = await res.text();
     console.log(data);
-    alert(data);
     window.location.href = 'login.html';
   } catch (err) {
     console.error(err);

@@ -25,7 +25,7 @@ async function loadPage(pageName, push = true) {
         break;
         
       case "products":
-        if (typeof initProductsPage === "function") initProductsPage();
+        requestAnimationFrame(() => initProductsPage());
         break;
 
       case "feedback":

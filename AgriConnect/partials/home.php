@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </section>
 <?php else: ?>
-  <?php if (!$isAdmin): ?>
+  <?php if ($isAdmin): ?>
     <section id="farmers-near-you" class="featured-section">
       <h2>Admin Panel</h2>
       <p>Hello pi</p>
