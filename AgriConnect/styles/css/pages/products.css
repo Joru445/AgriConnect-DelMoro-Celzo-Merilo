@@ -48,6 +48,7 @@ main #products .upload-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
   background-color: transparent;
 }
 
@@ -82,7 +83,6 @@ main #products .products-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
   padding: 2rem 1rem 3rem;
   border-radius: 8px;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08);
@@ -92,7 +92,7 @@ main #products .products-section {
 main #products .products-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1000px;
   min-height: 50vh;
@@ -107,8 +107,9 @@ main #products .product-card {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   text-align: center;
+  justify-self: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.5s ease forwards;

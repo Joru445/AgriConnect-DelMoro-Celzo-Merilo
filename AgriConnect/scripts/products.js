@@ -19,7 +19,7 @@ function setupObserver() {
     if (entries[0].isIntersecting) {
       loadProducts();
     }
-  }, { rootMargin: '300px' }); // load early, 300px before reaching the sentinel
+  }, { rootMargin: '300px' });
 
   observer.observe(sentinel);
 }
@@ -100,8 +100,8 @@ function renderProducts(products, grid, clear = false) {
     const priceHTML = product.price ? `<p class="product-price">₱${product.price}/kg</p>` : '';
     const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
     const locationHTML = product.location ? `<p class="location">${product.location}</p>` : '';
-    const imgSrc = product.image && product.image.trim() !== '' 
-      ? `./uploads/${product.image}` 
+    const imgSrc = product.image && product.image.trim() !== ''
+      ? `./uploads/${product.image}`
       : `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
 
     card.innerHTML = `
@@ -113,7 +113,7 @@ function renderProducts(products, grid, clear = false) {
       ${locationHTML}
       <div class="quantity">
         <button class="qty-btn" data-action="decrease">-</button>
-        <span class="qty-value">1</span>
+        <span class="qty-value">1/${product.quantity}</span>
         <button class="qty-btn" data-action="increase">+</button>
       </div>
       <button
@@ -132,18 +132,20 @@ function renderProducts(products, grid, clear = false) {
 
 document.addEventListener("click", e => {
   const btn = e.target.closest(".message-farmer-btn");
+  console.log(btn);
   if (!btn) return;
 
   e.preventDefault();
   const receiverId = btn.dataset.farmerId;
   const productName = btn.dataset.productName;
+
   if (!receiverId || !productName) return;
 
   const formData = new FormData();
   formData.append("receiver_id", receiverId);
   formData.append("message", `Hi! I'm interested in your product: ${productName}`);
 
-  fetch("backend/send_message.php", {
+  fetch("backend/send_messages.php", {
     method: "POST",
     body: formData,
   })
@@ -170,14 +172,14 @@ function setupQuantityControls(card, maxQty) {
   decreaseBtn.addEventListener('click', () => {
     if (currentQty > 1) {
       currentQty--;
-      qtyValue.textContent = currentQty;
+      qtyValue.textContent = `${currentQty}/${maxQty}`;
     }
   });
 
   increaseBtn.addEventListener('click', () => {
     if (currentQty < maxQty) {
       currentQty++;
-      qtyValue.textContent = currentQty;
+      qtyValue.textContent = `${currentQty}/${maxQty}`;
     }
   });
 }

@@ -12,5 +12,5 @@
     <div class="products-grid"></div>
   </div>
   
-  <div id="profileScrollEnd"><p>Loading...</p></div>
+  <div id="profileScrollEnd" style="width: 100%; height: 1rem;"></div>
 </section>

@@ -24,6 +24,6 @@ $isPartner = isset($_SESSION['role']) && $_SESSION['role'] === 'farmer';
       <button class="category-btn" data-category="seafoods">Seafoods</button>
     </div>
     <div class="products-grid"></div>
-    <div id="scrollEnd"><p>Loading...</p></div>
+    <div id="scrollEnd" style="width: 100%; height: 1rem;"></div>
   </section>
 </section>

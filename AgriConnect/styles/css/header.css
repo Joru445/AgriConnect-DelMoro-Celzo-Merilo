@@ -3,7 +3,7 @@ header.main-header {
   display: flex;
   justify-content: space-between;
   top: 0;
-  padding: 0 var(--padding-1);
+  padding: 0 1rem;
   box-shadow: 0 0px 32px rgba(0, 0, 0, 0.4);
   gap: 1rem;
   z-index: 999;
@@ -22,7 +22,7 @@ header.main-header img {
 
 header.main-header .navigation {
   display: flex;
-  padding: var(--padding-05) 0;
+  padding: 0.5rem 0;
   gap: 0.5rem;
 }
 
@@ -36,7 +36,7 @@ header.main-header .navigation form .search {
   align-items: center;
   width: max-content;
   width: clamp(8rem, 1vw, 12rem);
-  padding: 0.3rem var(--padding-05);
+  padding: 0.3rem 0.5rem;
   border-radius: 28px;
   gap: 0.3rem;
   background-color: var(--color-background);
@@ -74,6 +74,7 @@ header.main-header .navigation button {
   border: 0;
   border-radius: 4px;
   gap: 0.5rem;
+  overflow: hidden;
   color: var(--color-background);
   background-color: transparent;
   transition: var(--transition-3s);

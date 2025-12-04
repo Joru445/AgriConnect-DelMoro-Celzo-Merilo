@@ -12,7 +12,7 @@ async function loadPage(pageName, push = true) {
 
   try {
     const response = await fetch(`partials/${pageName}.php`);
-    if (!response.ok) 
+    if (!response.ok)
       throw new Error(`HTTP error! status: ${response.status}`);
 
     const html = await response.text();
@@ -20,12 +20,12 @@ async function loadPage(pageName, push = true) {
 
     // Init page-specific JS
     switch (pageName) {
-      case "settings": 
+      case "settings":
         if (typeof initSettingsPage === "function") initSettingsPage();
         break;
         
       case "products":
-        if (typeof loadProfile === "function") loadProfile();
+        if (typeof initProductsPage === "function") initProductsPage();
         break;
 
       case "feedback":
@@ -147,6 +147,7 @@ function handleHashChange() {
   if(hash.startsWith("profile-")) {
     const farmerId = hash.split("-")[1];
     loadPage("profile", false).then(() => loadProfile(farmerId));
+    loadProfile()
   } else {
     loadPage(hash || "home", false);
   }

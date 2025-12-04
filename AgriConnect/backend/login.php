@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $_SESSION["profile_pic"]     = $user["profile_pic"];
 
-            header("Location: ../dashboard.php");
+            header("Location: ../index.php");
             exit;
 
         } else {
