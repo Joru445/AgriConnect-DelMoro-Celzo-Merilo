@@ -4,9 +4,8 @@ header('Content-Type: application/json');
 
 $farmer_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 8;
-$offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
+$offset = isset($_GET['offset']) ? intval(value: $_GET['offset']) : 0;
 
-// Fetch farmer info
 $stmtFarmer = $connect->prepare("
     SELECT id, username, email, barangay, city, province, about, profile_pic,
         CONCAT(barangay, ', ', city, ', ', province) AS location
@@ -18,7 +17,6 @@ $stmtFarmer->execute();
 $resultFarmer = $stmtFarmer->get_result();
 $farmer = $resultFarmer->fetch_assoc();
 
-// Fetch farmer's products with limit & offset
 $stmtProducts = $connect->prepare("
     SELECT id, name, price, category, quantity, image
     FROM products
