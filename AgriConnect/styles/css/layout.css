@@ -38,31 +38,6 @@ header.main-header p {
   padding: var(--padding-05) 0;
 }
 
-/* SIDEBAR */
-
-.sidebar {
-  position: fixed;
-  top: 16%;
-  width: 2.6rem;
-  height: 40vh;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 0.5rem;
-  overflow: hidden;
-
-  border-radius: 0 8px 8px 0;
-  background-color: var(--color-primary);
-
-  transition: var(--transition-3s);
-  z-index: 999;
-}
-
-.sidebar.expanded {
-  width: 9rem;
-}
-
 /* MAIN */
 
 main {

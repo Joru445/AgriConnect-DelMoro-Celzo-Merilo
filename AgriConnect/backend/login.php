@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["barangay"]     = $user["barangay"];
 
             $_SESSION["profile_pic"]     = $user["profile_pic"];
+            $_SESSION["about"]     = $user["about"];
 
             header("Location: ../index.php");
             exit;

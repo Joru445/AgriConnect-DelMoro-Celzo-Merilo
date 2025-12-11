@@ -29,12 +29,16 @@ body.register-page .register-container h2 {
 body.login-page form,
 body.register-page form {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   gap: 1rem;
 }
 
-body.login-page form input,
-body.register-page form input {
+body.login-page form #username,
+body.login-page form #email,
+body.login-page form #password,
+body.login-page form #select {
+  width: 91%;
   padding: 0.8rem 1rem;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -43,8 +47,9 @@ body.register-page form input {
   transition: border 0.3s;
 }
 
-body.login-page form input:focus,
-body.register-page form input:focus {
+body.login-page form #username:focus,
+body.login-page form #email:focus,
+body.login-page form #password:focus {
   border-color: var(--color-primary);
 }
 

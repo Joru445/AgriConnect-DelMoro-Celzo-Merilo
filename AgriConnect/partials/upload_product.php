@@ -6,7 +6,7 @@
       <i class="chevron material-symbols-rounded close">chevron_right</i>
     </button>
   </div>
-  <form action="backend/upload_product.php" method="post" enctype="multipart/form-data">
+  <form action="backend/upload_product.php" method="POST" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Product Name" required>
     <select name="category" required>
       <option value="grains">Grains</option>

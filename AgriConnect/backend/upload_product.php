@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = $_POST['category'];
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
+    var_dump($_FILES['image']);
 
     // Handle image upload
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
@@ -23,13 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $connect->prepare("INSERT INTO products (name, category, price, quantity, farmer_id, image) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssdiis", $name, $category, $price, $quantity, $farmer_id, $filename);
             $stmt->execute();
-            header("Location: ../dashboard.php");
+            header("Location: ../index.php#products");
             exit;
         } else {
-            echo "Failed to upload image.";
+            header("Location: ../index.php#products?error=upload_failed");
+            exit;
         }
     } else {
-        echo "No image uploaded.";
+        header("Location: ../index.php#products");
+        exit;
     }
 }
 ?>

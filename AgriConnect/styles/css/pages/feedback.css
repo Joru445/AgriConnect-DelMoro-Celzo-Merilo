@@ -57,7 +57,7 @@
   font-weight:600;
 }
 
-#feedback form input[type="text"], input[type="email"], textarea, select {
+#feedback form input[type="text"], #feedback form input[type="email"], #feedback form textarea,  select {
   width: 95%;
   padding: 12px 14px;
   border-radius: 10px;

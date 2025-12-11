@@ -18,7 +18,6 @@ async function loadPage(pageName, push = true) {
     const html = await response.text();
     mainContainer.innerHTML = html;
 
-    // Init page-specific JS
     switch (pageName) {
       case "settings":
         if (typeof initSettingsPage === "function") initSettingsPage();
@@ -70,6 +69,7 @@ function initHeroPage() {
       }
       
       farmers.forEach(f => {
+        const about = f.about ? f.about : "";
         const profilePicSrc = f.profile_pic && f.profile_pic.trim() !== ""
         ? `./uploads/profiles/${f.profile_pic}.jpg`
         : `./assets/placeholder/profiles/profile_pic.jpg`;
@@ -78,7 +78,7 @@ function initHeroPage() {
           <div class="farmer-card" data-id="${f.id}">
             <div class="image-container"><img srcset="${profilePicSrc}" loading="lazy"></div>
             <h3>${f.username}</h3>
-            <p>${f.barangay}, ${f.city}, ${f.province}</p>
+            <p>${f.barangay} <br> ${f.city} <br> ${f.province}</p>
             <button class="view-profile-btn" data-id="${f.id}">
               View Profile
             </button>
@@ -147,7 +147,6 @@ function handleHashChange() {
   if(hash.startsWith("profile-")) {
     const farmerId = hash.split("-")[1];
     loadPage("profile", false).then(() => loadProfile(farmerId));
-    loadProfile()
   } else {
     loadPage(hash || "home", false);
   }

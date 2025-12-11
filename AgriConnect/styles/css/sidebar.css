@@ -122,3 +122,24 @@
   font-size: clamp(0.8rem,  2vw, 1rem);
   font-weight: bold;
 }
+
+@media (max-width: 500px) {
+  .sidebar {
+    height: 2.5rem;
+    opacity: 0.8;
+  }
+
+  .sidebar.expanded {
+    width: 2.6rem;
+    height: 40vh;
+    opacity: 1;
+  }
+
+  .sidebar .expand-navigation .chevron-button .chevron.right {
+    transform: rotate(90deg);
+  }
+
+  .sidebar .expand-navigation .chevron-button .chevron.left {
+    transform: rotate(270deg);
+  }
+}

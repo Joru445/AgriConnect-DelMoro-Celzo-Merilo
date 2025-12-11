@@ -19,7 +19,7 @@
 
 #inbox .inbox-container {
   flex: 1;
-  height: 100%;
+  height: 70vh;
 
   display: flex;
   overflow: hidden;
@@ -27,7 +27,7 @@
 
 
 #inbox .conversation-list {
-  width: 280px;
+  width: 8rem;
 
   background: var(--color-background-muted);
   border-right: 1px solid var(--color-background-highlight);
@@ -43,7 +43,7 @@
   text-align: left;
   background: none;
   border: none;
-  padding: var(--padding-1);
+  padding: 1rem;
   cursor: pointer;
 
   border-bottom: 1px solid var(--color-background-highlight);
@@ -90,7 +90,7 @@
   display: flex;
   flex-direction: column;
 
-  height: 80vh;
+  height: 100%;
 
   background: var(--color-background);
 }

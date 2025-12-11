@@ -4,6 +4,16 @@ let observer = null;
 let allLoadedProducts = [];
 let activeCategory = 'all';
 
+function getImgSrc(product) {
+  if (product.image && product.image.trim() !== '') {
+    return `./uploads/${product.image}`;
+  }
+
+  const exts = ['jpg', 'jpeg', 'png', 'webp'];
+  const category = product.category || 'placeholder';
+  return `./assets/placeholder/${category}.${exts[0]}`;
+}
+
 function initProductsPage() {
   showSkeleton(5);
   setupObserver();
@@ -100,9 +110,7 @@ function renderProducts(products, grid, clear = false) {
     const priceHTML = product.price ? `<p class="product-price">₱${product.price}/kg</p>` : '';
     const farmerHTML = product.farmer_name ? `<p class="farmer-name">${product.farmer_name}</p>` : '';
     const locationHTML = product.location ? `<p class="location">${product.location}</p>` : '';
-    const imgSrc = product.image && product.image.trim() !== ''
-      ? `./uploads/${product.image}`
-      : `./assets/placeholder/${product.category || 'placeholder'}.jpg`;
+    const imgSrc = getImgSrc(product);
 
     card.innerHTML = `
       <img src="${imgSrc}" loading="lazy" alt="${product.name}">

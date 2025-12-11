@@ -7,7 +7,7 @@ $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 8;
 $offset = isset($_GET['offset']) ? intval(value: $_GET['offset']) : 0;
 
 $stmtFarmer = $connect->prepare("
-    SELECT id, username, email, barangay, city, province, about, profile_pic,
+    SELECT id, username, email, barangay, city, province, about, profile_pic, about,
         CONCAT(barangay, ', ', city, ', ', province) AS location
     FROM users
     WHERE id = ?

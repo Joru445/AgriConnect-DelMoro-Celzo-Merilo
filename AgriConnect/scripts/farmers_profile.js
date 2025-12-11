@@ -4,6 +4,19 @@ let profileObserver = null;
 let profileAllProducts = [];
 let currentFarmerId = null;
 
+function getProfileImgSrc(fileName, category = 'placeholder', type = 'products') {
+  if (fileName && fileName.trim() !== '') {
+    if (type === 'profiles') {
+      return `./uploads/profiles/${fileName}.jpg`;
+    }
+    return `./uploads/${fileName}`;
+  }
+
+  const exts = ['jpg', 'jpeg', 'png', 'webp'];
+  const folder = type === 'profiles' ? 'profiles' : '';
+  return `./assets/placeholder/${folder ? folder + '/' : ''}${category}.${exts[0]}`;
+}
+
 async function loadProfile(farmerId) {
   currentFarmerId = farmerId;
   profileOffset = 0;
@@ -22,14 +35,9 @@ async function loadProfile(farmerId) {
     const res = await fetch(`backend/get_profile.php?id=${farmerId}&offset=0&limit=1`);
     const data = await res.json();
     if (!data || !data.farmer) return;
-    console.log(data.farmer.profile_pic);
-    const profilePicSrc = data.farmer.profile_pic && data.farmer.profile_pic.trim() !== ""
-      ? `./uploads/profiles/${data.farmer.profile_pic}.jpg`
-      : `./assets/placeholder/profiles/profile_pic.jpg`;
-    
-    profilePic.innerHTML = `
-      <img srcset="${profilePicSrc}" loading="lazy">
-    `;
+
+    const profilePicSrc = getProfileImgSrc(data.farmer.profile_pic, 'profile_pic', 'profiles');
+    profilePic.innerHTML = `<img src="${profilePicSrc}" loading="lazy" alt="${data.farmer.username}">`;
 
     profileBox.innerHTML = `
       <h1>${data.farmer.username}</h1>
@@ -37,7 +45,6 @@ async function loadProfile(farmerId) {
       <div class="about">${data.farmer.about || ""}</div>
     `;
 
-    // Start loading first batch of products
     loadMoreProfileProducts();
 
   } catch (err) {
@@ -99,12 +106,10 @@ function renderProfileProducts(grid, products) {
     card.classList.add("product-card");
     card.dataset.id = p.id;
 
-    const imgSrc = p.image && p.image.trim() !== ""
-      ? `./uploads/${p.image}`
-      : `./assets/placeholder/${p.category || 'placeholder'}.jpg`;
+    const imgSrc = getProfileImgSrc(p.image, p.category || 'placeholder', 'products');
 
     card.innerHTML = `
-      <img srcset="${imgSrc}" loading="lazy" alt="${p.name}">
+      <img src="${imgSrc}" loading="lazy" alt="${p.name}">
       <h3>${p.name}</h3>
       <p class="price">₱${p.price}/kg</p>
       <button class="message-farmer-btn"

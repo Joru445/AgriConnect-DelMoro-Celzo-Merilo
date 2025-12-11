@@ -1,17 +1,18 @@
 @media (max-width: 768px) {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
   main .page { width: 100%; }
 
   .conversation-list {
-    width: 200px;
+    width: 4rem;
   }
 
   .message {
     max-width: 85%;
+  }
+
+  #profile {
+    justify-content: center;
+    align-items: center;
+    width: 92%;
   }
 
   .profile-header {
